@@ -1,0 +1,193 @@
+# 1. Información de la web
+site_name: Robot CoCube
+site_description: Web con información y programación del robot CoCube, un robot educativo de escritorio que incorpora inteligencia artificial. CoCube es un robot muy pequeño que integra comunicación inalámbrica, pantalla, interacción por voz y otras funciones. Incorpora una batería que le permite moverse con flexibilidad.
+site_author: Federico Coca
+site_url: https://fgcoca.github.io/Robot_CoCube/
+
+# 2. Repositorio
+repo_name: Robot_CoCube
+repo_url: https://github.com/fgcoca/Robot_CoCube
+edit_uri: ""
+
+# 3. Footer
+copyright:
+  Copyright &copy; Copyright y copia; 2025 Federico Coca –
+  <a href="#consent">Cambiar configuración de cookies</a>
+
+extra:
+  # Footer - No poner que está hecho con MkDocs
+  generator: true
+  # Footer - Iconos
+  social:
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/fgcoca.bsky.social
+      name: Bluesky de Federico Coca
+    - icon: fontawesome/brands/github
+      link: https://github.com/fgcoca
+      name: Github de Federico Coca
+    - icon: fontawesome/brands/square-instagram
+      link: https://www.instagram.com/cocafederico/?hl=es
+      name: Instagram de Federico Coca
+
+# Cookies
+extra:
+  consent:
+    title: Consentimiento de cookies
+    description: 
+      Se utilizan cookies para reconocer las visitas repetidas
+      y sus preferencias, así como para medir la eficacia de 
+      nuestra documentación y si los usuarios encuentran lo que buscan.
+      Al aceptar, nos ayuda a mejorar nuestra documentación.
+    actions:
+      - accept
+      - reject
+      - manage
+
+# 4. Navegación
+nav:
+  - Introducción: index.md
+  - Robot CoCube:
+    - Antes de: cocube/contCoCube.md
+    - Introducción: cocube/introCC.md
+    - Progamación de la pantalla LCD: cocube/lcd.md
+    - Movimientos: cocube/movimientos.md
+    - Posicionamiento: cocube/posicionamiento.md
+    - Sonidos: cocube/sonidos.md
+    - Servo con pinza: cocube/pinza.md
+    - Eventos de transmisión o broadcast: cocube/broadcast.md
+    - Control por eventos de teclado: cocube/teclado.md
+    - Comunicaciones UDP: cocube/com_UDP.md
+    - Control remoto mediante APP: cocube/remoto_wifi.md
+    - Reconocimiento de color con Sentry2: cocube/sentry2_color.md
+    - Tráfico inteligente con Sentry2: cocube/sentry2_trafico.md
+    - Reconocimiento de línea con Sentry2: cocube/sentry2_linea.md
+    - Reconocimiento de etiquetas Apriltag: cocube/sentry2_april.md
+
+
+#- Ayuda:
+    #- Chuleta: ayuda/ayuda.md
+    #- Chuleta de Markdown: ayuda/markdown.md
+    #- Chuleta de Material Design: ayuda/material.md
+
+  - Miscelanea:
+    - Autor: Miscelanea/about.md 
+    - Licencias: Miscelanea/lic.md
+    - Software utilizado: Miscelanea/soft.md
+
+# 5. Google Analytics
+#google_analytics:
+#  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+#  - auto
+
+# 6. Configuración del tema
+theme:
+  name: material
+  # Color - Fuentes - Lenguaje
+  palette:
+    # Light Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/lightbulb
+        name: Modo Oscuro
+      primary: light blue
+      accent: deep purple 
+    # Dark Mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/lightbulb-outline
+        name: Modo Claro
+      primary: light blue
+      accent: deep purple
+  # Fuente
+  font:
+    text: Roboto 
+    code: Roboto Mono 
+  # Lenguage
+  language: es
+  logo: img/favicon.png 
+  favicon: img/favicon.png 
+  # Icono del repo
+  icon:
+    repo: fontawesome/brands/github
+  # Pestañas de navegación y botón copiar
+  features:
+    #- navigation.tabs
+    - navigation.tabs.sticky #pestañas fijas
+    - content.code.copy # Botón copiar en bloques de código    
+# Caracteristicas especiales
+features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    # Experimental
+    - search.suggest
+    - search.highlight
+    - search.share
+
+# 7. Extensiones
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: false
+      linenums: false
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+# 8. Necesario para la extensión pydownx.arithmatex
+extra_javascript:
+  - plugins/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# 9. Plugins
+plugins:
+  - search:
+      lang: es
+      separator: '[\s\-,:!=\[\]()"/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: "100%"
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
