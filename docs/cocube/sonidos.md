@@ -80,8 +80,8 @@ El formato [RTTTL](https://en.wikipedia.org/wiki/Ring_Tone_Text_Transfer_Languag
 
 Añadimos la libreria "**Politonos**" a nuestro entorno y nos encontramos con los siguientes bloques:
 
-* ![](../img/microSM/sonido/BPolitonos1.png). Reproduce la cadena de tono de llamada indicada.
-* ![](../img/microSM/sonido/BPolitonos2.png). Devuelve el nombre del tono de llamada que se está reproduciendo actualmente.
+* ![](../img/sonido/BPolitonos1.png). Reproduce la cadena de tono de llamada indicada.
+* ![](../img/sonido/BPolitonos2.png). Devuelve el nombre del tono de llamada que se está reproduciendo actualmente.
 
 Para reproducir una melodia simplemente la copiamos en el bloque ```toca el politono```.
 
