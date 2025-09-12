@@ -45,23 +45,21 @@ extra:
 
 # 4. Navegación
 nav:
-  - Introducción: index.md
-  - Robot CoCube:
-    - Antes de: cocube/contCoCube.md
-    - Introducción: cocube/introCC.md
-    - Progamación de la pantalla LCD: cocube/lcd.md
-    - Movimientos: cocube/movimientos.md
-    - Posicionamiento: cocube/posicionamiento.md
-    - Sonidos: cocube/sonidos.md
-    - Servo con pinza: cocube/pinza.md
-    - Eventos de transmisión o broadcast: cocube/broadcast.md
-    - Control por eventos de teclado: cocube/teclado.md
-    - Comunicaciones UDP: cocube/com_UDP.md
-    - Control remoto mediante APP: cocube/remoto_wifi.md
-    - Reconocimiento de color con Sentry2: cocube/sentry2_color.md
-    - Tráfico inteligente con Sentry2: cocube/sentry2_trafico.md
-    - Reconocimiento de línea con Sentry2: cocube/sentry2_linea.md
-    - Reconocimiento de etiquetas Apriltag: cocube/sentry2_april.md
+  - Antes de: index.md
+  - Introducción: cocube/introCC.md
+  - Progamación de la pantalla LCD: cocube/lcd.md
+  - Movimientos: cocube/movimientos.md
+  - Posicionamiento: cocube/posicionamiento.md
+  - Sonidos: cocube/sonidos.md
+  - Servo con pinza: cocube/pinza.md
+  - Eventos de transmisión o broadcast: cocube/broadcast.md
+  - Control por eventos de teclado: cocube/teclado.md
+  - Comunicaciones UDP: cocube/com_UDP.md
+  - Control remoto mediante APP: cocube/remoto_wifi.md
+  - Reconocimiento de color con Sentry2: cocube/sentry2_color.md
+  - Tráfico inteligente con Sentry2: cocube/sentry2_trafico.md
+  - Reconocimiento de línea con Sentry2: cocube/sentry2_linea.md
+  - Reconocimiento de etiquetas Apriltag: cocube/sentry2_april.md
 
 
 #- Ayuda:

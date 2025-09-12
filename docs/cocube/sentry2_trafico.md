@@ -27,7 +27,7 @@ Hay que realizar la conexión de de dispostivos colocando el soporte para la Sen
 
 <center>
 
-![Color](../img/sentry2/id6_res.png)  
+![Color](../img/CoCube/id6_res.png)  
 
 </center>
 
@@ -47,7 +47,7 @@ Identifica si hay patrones de tarjetas específicos en la imagen y devuelva info
 
 <center>
 
-![Devolución de resultados](../img/sentry2/id6_resul.png)  
+![Devolución de resultados](../img/CoCube/id6_resul.png)  
 
 </center>
 

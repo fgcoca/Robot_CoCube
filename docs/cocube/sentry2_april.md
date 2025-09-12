@@ -1,7 +1,7 @@
 ## <FONT COLOR=#007575>**Objetivo**</font>
 Aprender sobre la función de reconocimiento AprilTag de Sentry2.
-
-Se recomienda la lectura de la entrada [Marcador AprilTag](https://fgcoca.github.io/GuiasFundamentales/cocube/introCC/#marcador-apriltag)
+http://127.0.0.1:8000/Robot_CoCube/cocube/introCC/#marcador-apriltag
+Se recomienda la lectura de la entrada [Marcador AprilTag](https://fgcoca.github.io/Robot_CoCube/cocube/introCC/#marcador-apriltag)
 
 ## <FONT COLOR=#007575>**Materiales**</font>
 Robot CoCube, conector soporte para Sentry2, algunas etiquetas AprilTag y ordenador ejecutando el IDE de MicroBlocks en cualquiera de sus versiones, estable instalada localmente o versiones online tanto estable como pilot. En cualquier caso tenemos que añadir las bibliotecas **CoCube**, **CoCube module** y **Sentry2 AI camera**.
@@ -19,7 +19,7 @@ Puedes imprimir etiquetas AprilTag de las especificaciones y tamaños adecuados 
     !!! note ""
     <center>
 
-    ![Borde en las etiquetas AprilTags](../img/sentry2/bordeApril.png)  
+    ![Borde en las etiquetas AprilTags](../img/CoCube/bordeApril.png)  
 
     </center>
 
@@ -38,7 +38,7 @@ Hay que realizar la conexión de de dispostivos colocando el soporte para la Sen
 
 <center>
 
-![AprilTag](../img/sentry2/id3_res.png)  
+![AprilTag](../img/CoCube/id3_res.png)  
 
 </center>
 
@@ -51,7 +51,7 @@ El algoritmo detecta si hay un patrón Apriltag en la imagen. Actualmente, admit
 
 <center>
 
-![Familias de etiquetas AprilTag](../img/sentry2/etq_apriltag.png)  
+![Familias de etiquetas AprilTag](../img/CoCube/etq_apriltag.png)  
 
 </center>
 
@@ -63,7 +63,7 @@ Cuando imprimimos nuestras propias etiquetas AprilTags es muy importante dejar a
 
 <center>
 
-![Borde en las etiquetas AprilTags](../img/sentry2/bordeApril.png)  
+![Borde en las etiquetas AprilTags](../img/CoCube/bordeApril.png)  
 
 </center>
 
@@ -71,7 +71,7 @@ Cuando imprimimos nuestras propias etiquetas AprilTags es muy importante dejar a
 
 <center>
 
-![Configuración de parámetros](../img/sentry2/id3_param.png)  
+![Configuración de parámetros](../img/CoCube/id3_param.png)  
 
 </center>
 
@@ -97,7 +97,7 @@ Al hacer clic en el botón, se pueden recorrer los tres modos de codificación: 
 
 <center>
 
-![Devolución de resultados](../img/sentry2/id3_resul.png)  
+![Devolución de resultados](../img/CoCube/id3_resul.png)  
 
 </center>
 

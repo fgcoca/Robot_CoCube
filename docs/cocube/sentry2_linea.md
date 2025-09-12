@@ -30,7 +30,7 @@ Hay que realizar la conexión de de dispostivos colocando el soporte para la Sen
 
 <center>
 
-![Línea](../img/sentry2/id4_res.png)  
+![Línea](../img/CoCube/id4_res.png)  
 
 </center>
 
@@ -44,7 +44,7 @@ En el enlace siguiente se puede ver un video, que aunque está en chino, se pued
 
 <center>
 
-![Configuración de parámetros](../img/sentry2/id4_param.png)  
+![Configuración de parámetros](../img/CoCube/id4_param.png)  
 
 </center>
 
@@ -64,7 +64,7 @@ Puedes establecer el valor entre 1 y 5 segmentos de línea.
 
 <center>
 
-![Devolución de resultados](../img/sentry2/id4_resul.png)  
+![Devolución de resultados](../img/CoCube/id4_resul.png)  
 
 </center>
 
@@ -77,7 +77,7 @@ Se pueden detectar hasta 5 segmentos de línea simultáneamente. Para distinguir
 
 <center>
 
-![Devolución de resultados](../img/sentry2/id4_resul_color_lin.png)  
+![Devolución de resultados](../img/CoCube/id4_resul_color_lin.png)  
 
 </center>
 

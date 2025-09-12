@@ -144,7 +144,7 @@ En el ejemplo siguiente suena un politono u otro dependiendo del botón que puls
 
 <center>
 
-![Ejemplo básico de politonos](../img/microSM/sonido/ejem_politonos.png)  
+![Ejemplo básico de politonos](../img/CoCube/ejem_politonos.png)  
 [Descargar programa](../program/cocube/ejem_politonos.ubp)
 
 </center>

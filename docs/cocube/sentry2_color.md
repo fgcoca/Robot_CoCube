@@ -25,7 +25,7 @@ Hay que realizar la conexión de de dispostivos colocando el soporte para la Sen
 
 <center>
 
-![Color](../img/sentry2/color.png)  
+![Color](../img/CoCube/color.png)  
 
 </center>
 
@@ -71,7 +71,7 @@ Los valores predeterminados en el sistema de coordenadas porcentuales son: 1x1, 
 
 <center>
 
-![Colores a inspeccionar](../img/sentry2/id2_result.png)  
+![Colores a inspeccionar](../img/CoCube/id2_result.png)  
 
 </center>
 
@@ -91,7 +91,7 @@ Nos aseguramos de tener blob configurado como en la imagen siguiente:
 
 <center>
 
-![Colores a inspeccionar](../img/sentry2/conf_blob_color.png)  
+![Colores a inspeccionar](../img/CoCube/conf_blob_color.png)  
 
 </center>
 
