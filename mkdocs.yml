@@ -45,8 +45,8 @@ extra:
 
 # 4. Navegación
 nav:
-  - Antes de: index.md
-  - Introducción: cocube/introCC.md
+  - Introducción: index.md
+  #- Introducción: cocube/introCC.md
   - Progamación de la pantalla LCD: cocube/lcd.md
   - Movimientos: cocube/movimientos.md
   - Posicionamiento: cocube/posicionamiento.md
