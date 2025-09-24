@@ -46,7 +46,6 @@ extra:
 # 4. Navegación
 nav:
   - Introducción: index.md
-  #- Introducción: cocube/introCC.md
   - Progamación de la pantalla LCD: cocube/lcd.md
   - Movimientos: cocube/movimientos.md
   - Posicionamiento: cocube/posicionamiento.md
@@ -60,6 +59,7 @@ nav:
   - Tráfico inteligente con Sentry2: cocube/sentry2_trafico.md
   - Reconocimiento de línea con Sentry2: cocube/sentry2_linea.md
   - Reconocimiento de etiquetas Apriltag: cocube/sentry2_april.md
+  #- Retos: cocube/retos.md
 
 
 #- Ayuda:

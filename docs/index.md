@@ -16,6 +16,15 @@ Información basada en:
 
 Los contenidos que se exponen en este apartado son una adaptación y ampliación de los ofrecidos en los enlaces de referencia.
 
+La imagen siguiente corresponde a la página principal de [CoCube](https://www.cocubefun.com/) y muestra los colaboradores de confianza del robot. Destaco entre ellos a uno de mis principales soportes, que es [INNOVA DIDACTIC](https://shop.innovadidactic.com/)
+
+<center>
+
+![CoCubefun](./img/CoCube/CoCubefun.png)  
+***Creando innovación junto con empresas y organizaciones líderes en todo el mundo***
+
+</center>
+
 ## <FONT COLOR=#007575>**CoCube**</font>
 <font size="6"><b>CoCube es una plataforma modular múlti-robot de sobremesa para la educación y la investigación</b></font>
 
