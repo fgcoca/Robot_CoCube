@@ -59,7 +59,7 @@ nav:
   - Tráfico inteligente con Sentry2: cocube/sentry2_trafico.md
   - Reconocimiento de línea con Sentry2: cocube/sentry2_linea.md
   - Reconocimiento de etiquetas Apriltag: cocube/sentry2_april.md
-  #- Retos: cocube/retos.md
+  - Retos: cocube/retos.md
 
 
 #- Ayuda:

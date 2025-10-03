@@ -1,252 +1,338 @@
-## <FONT COLOR=#007575>**Aspectos destacados**</font>
-Se dispone de un tablero con una configuración de cuadrados de 5x5 cm numerados (el número está en el centro en un fuente de 12 puntos) con esta estructura: 
-1       2       3
-11     12     13
-21      22     23
-24      40      41
+## <FONT COLOR=#007575>**Apilador de balones**</font>
+Este reto se basa en el diseño realizado por Shuai Liang, creador del robot CoCube, que, según sus propias palabras, explica que: *cuando estaba organizando actividades, observó que, que los niños cuando dispusieron de varios balones de fútbol, disfrutaron mucho intentando apilarlos y lanzarlos. Por eso diseñó la estructura de la imagen para guardar balones.
+
+<center>
+
+![Estructura para guardar balones](../img/CoCube/almac_balones.png)  
+***[Archivo stl](../img/aux/ext_porta_balones/cocube%20ball%20storage.stl)***
+
+</center>
+
+El dispositivo anterior se acopla a la pinza con servo muy facilmente como se observa en la imagen siguiente:
+
+<center>
+
+![Colocación estructura para guardar balones](../img/CoCube/almac_balones_colocar.png)  
+
+</center>
+
+La capacidad de esta estructura es de tres balones y el conjunto queda como se ve en la imagen siguiente:
+
+<center>
+
+![CoCube con la estructura y tres balones colocados](../img/CoCube/almac_balones_coloc_3balon.png)  
+
+</center>
+
+He diseñado un expansor de la estructura que permite añadir otros tres balones encima de los anteriores. El diseño se ha realizado con la filosofía de que sea sencillo tanto de imprimir en 3D como de colocar.
+
+<center>
+
+![Expansión de la estructura para guardar balones](../img/CoCube/exp_almac_balones.png)  
+***[Archivo stl](../img/aux/ext_porta_balones/ext_porta_balones.stl)***
+
+</center>
+
+El dispositivo se acopla a la estructura anterior muy facilmente como se observa en la imagen siguiente:
+
+<center>
+
+![Colocación de la expansión en la estructura para guardar balones](../img/CoCube/exp_almac_balones_colocar.png)  
+
+</center>
+
+La capacidad ahora es de cinco balones y el conjunto queda como se ve en la imagen siguiente:
+
+<center>
+
+![CoCube con la estructura y la extensión con cinco balones colocados](../img/CoCube/ext_almac_balones_coloc_3balon.png)  
+
+</center>
+
+A continuación se muestra un sencillo ejemplo de realización de lanzamientos de balón en dirección a las porterias del CoMap "Football Challenge" mientras en pantalla se muestra el número de lanzamientos realizado en color morado.
+
+El programa y su enlace de descarga lo vemos en la imagen siguiente:
+
+<center>
+
+![Lanzamiento de cinco balones](../img/CoCube/lanza_balones.png)  
+***[Descargar el programa]()***
+
+</center>
+
+El resultado del programa es:
+
+<center>
+
+![Lanzamiento de cinco balones](../img/CoCube/lanza_balones.gif)  
+***[Descargar el programa]()***
+
+</center>
+
+## <FONT COLOR=#007575>**Movimiento básico por CoTag numérico**</font>
+Veamos un enunciado general: Se dispone de un tablero con una configuración de cuadrados de 5x5 cm numerados con esta estructura:
+
+<center>
+
+<table>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>12</td>
+    <td>13</td>
+  </tr>
+    <tr>
+    <td>21</td>
+    <td>22</td>
+    <td>23</td>
+  </tr>
+    <tr>
+    <td>24</td>
+    <td>40</td>
+    <td>41</td>
+  </tr>
+</table>
+</center>
+
 Los cuadrados están separados 13 mm en horizontal y 10 mm en vertical.
-La idea es definir un juego que comience en el 1 y recorra el tablero asignando a los números 24, 40 y 41 el inicio, el fin y alguna otra tarea. No hay que dar nombre a las celdas de la matriz pues ya lo tienen con los números.
-El juego lo debe resolver un robot capaz de identificar cada cuadrado por su número o ID. Dicho robot también sabe la orientación en grados que tiene sobre el tablero que sería así respecto a la parte delantera del robot situado en 12 mirando hacia 22:
-12-Robot orientado a 22 -> 0 grados; 13 -> 90 grados; 2 -> 180 grados y 11 -> 270 grados.
 
-Misión de Reconocimiento
+La idea es crear un programa en MicroBlocks para CoCube que al comenzar muestre en pantalla el mensaje "Pon CoCube sobre CoTag" y el robot permanezca parado hasta que se pulse el botón A en cuyo caso el robot avanza por el CoTag. En el avance sobre la alfombra, se asigna a una variable el ID de la celda sobre la que está el robot, se indica el dato obtenido en el IDE y se muestra en la pantalla al tiempo que suena un sonido MIDI. Pulsar el botón B hace que el robot se detenga.
 
-Objetivo:
-El robot comienza en la casilla 1 y debe completar una misión que incluye:
-Recoger un objeto en la casilla 24 (inicio del objetivo).
-Realizar un escaneo de datos en la casilla 41 (tarea intermedia).
-Transportar y entregar el objeto en la casilla 40 (final de la misión).
-El robot debe seguir el camino óptimo o cumplir con restricciones predefinidas (dependiendo del nivel de dificultad), reconociendo cada celda por su número (ID) y guiándose por su orientación.
+### <FONT COLOR=#AA0000>Especificaciones del comportamiento</font>
 
-Orientación del Robot
+**1. Inicio del programa**
 
-Según la orientación estándar:
-Frente del robot en 12 mirando a 22 → 0° (Sur).
-Mirando a 13 → 90° (Este).
-Mirando a 2 → 180° (Norte).
-Mirando a 11 → 270° (Oeste).
+* Mostrar en pantalla: "Pon CoCube sobre CoTag".
+* Robot detenido.
 
-| Dirección del robot (desde 12) | Casilla destino | Nueva orientación | Ángulo   |
-| ------------------------------ | --------------- | ----------------- | -------- |
-| **Frente mirando a 22**        | **Norte**       | Frente            | **0°**   |
-| **Frente mirando a 13**        | **Este**        | Derecha           | **90°**  |
-| **Frente mirando a 2**         | **Sur**         | Atrás             | **180°** |
-| **Frente mirando a 11**        | **Oeste**       | Izquierda         | **270°** |
+**2. Botón A**
 
-Comandos disponibles:
+* Al pulsar el robot avanza.
 
-avanzar() → se mueve una casilla en la dirección actual.
-girar_derecha() → gira 90° en sentido horario.
-girar_izquierda() → gira 90° en sentido antihorario.
-esperar(segundos) → pausa de tiempo.
-recoger() → activa señal de carga.
-entregar() → finaliza misión.
-escaneo() → realiza una lectura o espera en casilla.
+**3. Botón B**
 
-acciones = [
-    girar_izquierda,   # Desde 1 mirando a 2 (Norte 0°), gira a 270° (Oeste hacia 11)
-    avanzar,           # Va a 11
-    girar_izquierda,   # Mira hacia 21 (Sur, 180°)
-    avanzar,           # Va a 21
-    avanzar,           # Va a 24
-    recoger,           # Recoge objeto
-    girar_derecha,     # Mira a 40 (Este, 90°)
-    avanzar,           # Va a 40
-    avanzar,           # Va a 41
-    escaneo,           # Escanea
-    girar_izquierda,   # Mira hacia 40 (Norte, 0°)
-    avanzar,           # Va a 40
-    entregar           # Entrega objeto
-]
+* Al pulsar el robot se detiene.
 
-Variables que usarás
+**4. Lectura de posición sobre el CoTag**
 
-posición → para guardar el ID de la casilla en la que está el robot (empieza en 1)
+Si el robot está sobre la alfombra (CoTag detectado):
 
-orientación → para guardar uno de {0°, 90°, 180°, 270°}, con la convención que definimos:
+* Guardar en una variable el número de la celda.
+* Mostrar el valor de la variable en el IDE.
+* Mostrar en la pantalla del CoCube ese valor.
+* Emitir una nota MIDI: 60 + celdaID.
 
-0° = Norte
+### <FONT COLOR=#AA0000>Programa en MicroBlocks</font>
+El programa completo y el enlace de descarga del mismo lo tenemos a continuación:
 
-90° = Este
+<center>
 
-180° = Sur
+![Movimiento básico por CoTag numérico](../img/CoCube/P_Mov_basico_CoTag_num.png)  
+**[Descargar P_Mov_basico_CoTag_num](../program/cocube/P_Mov_basico_CoTag_num.ubp)**
 
-270° = Oeste
+</center>
 
-objetivo → “ninguno” / “24 recogida” / “41 escaneo” / “40 entrega”
+## <FONT COLOR=#007575>**Recorrer todo el CoTag numérico**</font>
+Trabajando sobre el mismo CoTag que en el ejemplo anterior, ahora la idea es definir un recorrido que comience en una de las celdas de la fila inferior (24, 40 o 41) y que recorra todo el tablero pasando por todas las celdas excepto la de inicio. El recorrido lo debe resolver CoCube identificando cada cuadrado por su número o ID mostrándo durante todo el recorrido la celda de partida. CoCube también sabe la orientación en grados que tiene sobre el tablero que sería así respecto a la parte delantera del robot situado en la celda 12 mirando hacia 22: 12-Robot orientado a 22 -> 0 grados; 13 -> 90 grados; 2 -> 180 grados y 11 -> 270 grados.
 
-acciones → lista de acciones pendientes, como “girar”, “avanzar”, “recoger”, etc.
+En la imagen siguiente podemos ver estos detalles:
 
-índice_acciones → para llevar un seguimiento de en qué acción está
+<center>
 
-Lógica general
+![CoTags números](../img/CoCube/cotags_num.png)  
 
-Al iniciar, configurar posición = 1, orientación = 180° (porque empieza mirando hacia la casilla 2 que es “Sur” bajo nuestra convención), objetivo = "24 recogida".
+</center>
 
-Definir la secuencia de acciones necesarias: la lista que determine moverse de casilla en casilla hasta 24, recoger, luego hasta 41, escanear, luego hasta 40, entregar.
+A continuación se dan sendos enlaces para descargar los correspondientes CoTags:
 
-Cada vez que se pulsa el Botón A, se toma la acción acciones[índice_acciones], se ejecuta, se incrementa índice_acciones.
+* [CoTag numérico en A4 con puntos de 3x3px](../img/aux/CoTags/CoTags_A4_3x3_1200DPI.pdf)
+* [CoTag numérico en A4 con puntos de 4x4px](../img/aux/CoTags/CoTags_A4_4x4_1200DPI.pdf)
 
-Comprobar al llegar a ciertas casillas si se debe cambiar objetivo (por ejemplo, al llegar a 24 cambiar a “41 escaneo”, luego a “40 entrega”).
+!!! Info "Para imprimir"
+    - La resolución de la impresora debe ser de 1200 ppp como mínimo.
+    - Hay que imprimir en el tamaño original, es decir, con una escala del 100 %.
+    - 3x3 representa que el tamaño del punto negro es de 3x3 píxeles, y 4x4 representa que el tamaño del punto negro es de 4x4 píxeles. Si 3x3 no se imprime con claridad, puedes probar con el archivo 4x4.
 
-cuando se inicia:
-  posición ← 1
-  orientación ← 180   // mirando hacia casilla 2
-  objetivo ← "24 recogida"
-  acciones ← [
-    girar_izquierda, avanzar, girar_izquierda, avanzar, avanzar,    // mover de 1 → 11 → 21 → 24
-    recoger,
-    girar_derecha, avanzar, avanzar,                                // ir de 24 → 40 → 41, asumiento rutas válidas
-    escaneo,
-    girar_izquierda, avanzar,                                       // volver de 41 → 40
-    entregar
-  ]
-  índice_acciones ← 1
+### <FONT COLOR=#AA0000>Reglas generales del juego</font>
 
-*************************************
+**1. Objetivo**
 
-Supuestos
+* CoCube parte desde una de las tres celdas de la fila inferior: 24, 40 o 41.
+* Debe recorrer todas las demás celdas una sola vez (visitar las 11 celdas restantes) y terminar cuando todas hayan sido visitadas. La celda de inicio no debe volver a visitarse.
 
-Para este programa asumo:
+**2. Tablero y distancias (centros de casilla → centro de casilla)**
 
-Tienes la biblioteca de bloques de CoCube instalada. (Mover, girar, botón A, orientación, posición) 
+* Cada casilla mide: 5 × 5 cm (50 mm × 50 mm).
+* Separación entre casillas: horizontal 13 mm, vertical 10 mm.
+* Distancia centro–centro horizontal = 50 + 13 = 63 mm (6.3 cm); vertical = 50 + 10 = 60 mm (6.0 cm).
 
-Que CoCube puede detectar su orientación y posición mediante CoMaps/CoTags etc. 
+**3. convención de ángulos (absoluta respecto al tablero)**
 
-Que hay un bloque para detectar “Botón A presionado” en CoCube. (Botón físico trasero A) 
+* Tomado desde la posición de 12 mirando a 22:
 
+    &#8259; 0° = mirando hacia 22 (sur, hacia abajo en la representación).
+    &#8259; 90° = hacia 13 (este, derecha).
+    &#8259; 180° = hacia 2 (norte, arriba).
+    &#8259; 270° = hacia 11 (oeste, izquierda).
 
-Bloques / Componentes que vas a usar
+* Los incrementos de ángulo son en sentido horario (ej. de 0° a 90° gira a la derecha).
 
-Aquí una lista de bloques que necesitarás:
-* Cuando se inicia / “on start”
-* Cuando Botón A presionado (“when button A pressed”)
+<center>
 
-Bloques de movimiento:
-* avanzar() → mover una casilla (o distancia breve) en la orientación actual
-* girar_derecha() → girar 90° horario
-* girar_izquierda() → girar 90° antihorario
+![Puntos cardinales](../img/CoCube/cotags_num_p_cardinales.png)  
 
-Bloques de tarea especial:
+</center>
 
-* recoger()
-* escaneo()
-* entregar()
+**4. Movimientos permitidos**
 
-Bloque de espera / pausa: esperar(segundos)
+* Sólo movimientos entre casillas adyacentes en las 4 direcciones ortogonales (N, S, E, O).
+* Cada movimiento consiste en girar hasta la orientación absoluta que lleva a la casilla objetivo y avanzar la distancia apropiada (63 mm para E/O o 60 mm para N/S).
 
-Variables:
+**5. Identificación**
 
-* posición (inicializada en 1)
-* orientación (inicializada en lo que corresponda; con tu convención: 0° = Norte, 90° = Este, etc.)
-* acciones (una lista)
-* índice_acciones
+* CoCube identifica cada casilla por su número (el robot debe mostrar el ID de la casilla por la que está pasando).
 
-Estructura del programa
+### <FONT COLOR=#AA0000>Algoritmo paso a paso para CoCube</font>
+A continuación tienes las secuencias precomputadas (paso a paso) para los tres posibles puntos de partida (24, 40, 41). Usa la secuencia correspondiente según la celda de inicio.
 
-1. Bloque “Cuando se inicia”
+<FONT COLOR=#0000FF><b>Rutas precomputadas y comandos directos</b></font>
 
-Configura las variables:
+He precomputado rutas Hamiltonianas $^{(ver \space nota)}$. Para cada inicio la lista contiene la secuencia completa (incluyendo la celda de inicio). En cada paso indico:
 
-posición ← 1
-orientación ← 0° (supongamos que empieza mirando hacia casilla 22 que aquí definimos como Norte)
-índice_acciones ← 1
-acciones ← lista con los pasos (como antes):
+* desde → a : dirección (N/S/E/O) — orientación absoluta (grados)
+* distancia a avanzar (mm). Distancias: E/O = 63 mm, N/S = 60 mm.
 
-2. Bloque “Cuando Botón A presionado”
+!!! Note "NOTA"
+    Según Wikipedia, en teoría de grafos, un [camino hamiltoniano](https://es.wikipedia.org/wiki/Camino_hamiltoniano) en un grafo es un camino (es decir, una sucesión de aristas adyacentes), que visita todos los vértices del grafo una sola vez. Si además el primer y último vértice visitado coincide, el camino es un ciclo hamiltoniano.
 
-Se ejecuta cada vez que presionas botón A:
+**&#8227; Si empiezas en 24**
 
-3. Bloque “ejecutar_acción(acción)”
+Ruta: 24 → 40 → 41 → 23 → 22 → 21 → 11 → 12 → 13 → 3 → 2 → 1
 
-Un bloque que realice la acción correspondiente:
+Pasos:
 
-4. Bloque auxiliar: mover_un_paso_en_orientación(orientación)
+* Leer celda inicial (24)
+* 24 → 40 : E — 90° — 63 mm. (leer 40)
+* 40 → 41 : E — 90° — 63 mm. (leer 41)
+* 41 → 23 : N — 180° — 60 mm. (leer 23)
+* 23 → 22 : O — 270° — 63 mm. (leer 22)
+* 22 → 21 : O — 270° — 63 mm. (leer 21)
+* 21 → 11 : N — 180° — 60 mm. (leer 11)
+* 11 → 12 : E — 90° — 63 mm. (leer 12)
+* 12 → 13 : E — 90° — 63 mm. (leer 13)
+* 13 → 3 : N — 180° — 60 mm. (leer 3)
+* 3 → 2 : O — 270° — 63 mm. (leer 2)
+* 2 → 1 : O — 270° — 63 mm. (leer 1)
 
-Este bloque/método debe saber, para cada orientación, a qué casilla adyacente ir. Tendrás que mapear internamente el tablero:
+Fin: todas las celdas distintas de la inicial (24) han sido visitadas.
 
-Ejemplo:
+**&#8227; Si empiezas en 40**
 
-si posición = 1 y orientación = Este (90°) entonces nueva posición ← 2
-si posición = 1 y orientación = Sur (180°) entonces nueva posición ← 11
+Ruta: 40 → 24 → 21 → 22 → 12 → 11 → 1 → 2 → 3 → 13 → 23 → 41
 
-Montaje visual en MicroBlocks
+Pasos:
 
-En MicroBlocks tendrías algo así:
+* Leer celda inicial (40)
+* 40 → 24 : O — 270° — 63 mm. (leer 24)
+* 24 → 21 : N — 180° — 60 mm. (leer 21)
+* 21 → 22 : E — 90° — 63 mm. (leer 22)
+* 22 → 12 : N — 180° — 60 mm. (leer 12)
+* 12 → 11 : O — 270° — 63 mm. (leer 11)
+* 11 → 1 : N — 180° — 60 mm. (leer 1)
+* 1 → 2 : E — 90° — 63 mm. (leer 2)
+* 2 → 3 : E — 90° — 63 mm. (leer 3)
+* 3 → 13 : S — 0° — 60 mm. (leer 13)
+* 13 → 23 : S — 0° — 60 mm. (leer 23)
+* 23 → 41 : S — 0° — 60 mm. (leer 41)
 
-En la paleta de “Control”: bloques cuando se inicia, cuando Botón A presionado
+Fin: todas las celdas distintas de la inicial (40) han sido visitadas.
 
-En la paleta de “Variables”: crear variables posición, orientación, índice_acciones, acciones
+**&#8227; Si empiezas en 41**
 
-En la paleta de “Listas”: bloque lista para acciones
+Ruta: 41 → 40 → 24 → 21 → 22 → 23 → 13 → 12 → 11 → 1 → 2 → 3
 
-Bloques de acción específicos de CoCube de movimiento y tareas
+Pasos:
 
-+---------------------------------------------------------+
-|                   Bloque “Cuando se inicia”            |
-|---------------------------------------------------------|
-| posición ← 1                                           |
-| orientación ← 0°     // Norte                          |
-| índice_acciones ← 1                                    |
-| acciones ← lista [                                       |
-|    girar_izquierda, avanzar, girar_izquierda, avanzar, avanzar, |
-|    recoger,                                             |
-|    girar_derecha, avanzar, avanzar,                     |
-|    escaneo,                                             |
-|    girar_izquierda, avanzar,                            |
-|    entregar                                             |
-| ]                                                       |
-+---------------------------------------------------------+
+* Leer celda inicial (41)
+* 41 → 40 : O — 270° — 63 mm. (leer 40)
+* 40 → 24 : O — 270° — 63 mm. (leer 24)
+* 24 → 21 : N — 180° — 60 mm. (leer 21)
+* 21 → 22 : E — 90° — 63 mm. (leer 22)
+* 22 → 23 : E — 90° — 63 mm. (leer 23)
+* 23 → 13 : N — 180° — 60 mm. (leer 13)
+* 13 → 12 : W — 270° — 63 mm. (leer 12)
+* 12 → 11 : W — 270° — 63 mm. (leer 11)
+* 11 → 1 : N — 180° — 60 mm. (leer 1)
+* 1 → 2 : E — 90° — 63 mm. (leer 2)
+* 2 → 3 : E — 90° — 63 mm. (leer 3)
 
-          │
-          │   (dependiente del botón A)
-          ▼
+Fin: todas las celdas distintas de la inicial (41) han sido visitadas.
 
-+---------------------------------------------------------+
-|           Bloque “Cuando Botón A presionado”           |
-|---------------------------------------------------------|
-| si índice_acciones ≤ longitud(acciones) entonces       |
-|    acción_actual ← acciones[índice_acciones]            |
-|    ejecutar_acción(acción_actual)                      |
-|    índice_acciones ← índice_acciones + 1               |
-| fin si                                                 |
-+---------------------------------------------------------+
+### <FONT COLOR=#AA0000>Programa en MicroBlocks</font>
+Comenzamos por definir el bloque ```al empezar``` de la forma siguiente:
 
-          │
-          │   (llama a:)
+<center>
 
-          ▼
+![Bloque ```al empezar```](../img/CoCube/scriptImage27045879.png)  
 
-+---------------------------------------------------------+
-|        Bloque “ejecutar_acción(acción)”                |
-|---------------------------------------------------------|
-| si acción = "avanzar" entonces                          |
-|    mover_un_paso_en_orientación(orientación)            |
-|    actualizar posición según orientación                |
-| sino si acción = "girar_derecha" entonces               |
-|    orientación ← (orientación + 90) mod 360             |
-| sino si acción = "girar_izquierda" entonces             |
-|    orientación ← (orientación − 90) mod 360             |
-|    si orientación < 0 entonces orientación ← orientación + 360 |
-| sino si acción = "recoger" entonces                     |
-|    [acción de recolección]                              |
-| sino si acción = "escaneo" entonces                      |
-|    esperar(3 segundos)                                   |
-| sino si acción = "entregar" entonces                     |
-|    [acción de entrega / señal fin]                       |
-| fin si                                                  |
-+---------------------------------------------------------+
+</center>
 
-          │
-          │   (auxiliar si “avanzar”)
+Para simplificar y hacer mas legible el programa se definen tres funciones (una para cada celda de salida) que definen los recorridos indicados.
 
-          ▼
+* **Función 24**
 
-+---------------------------------------------------------+
-|     Bloque auxiliar “mover_un_paso_en_orientación(orientación)” |
-|---------------------------------------------------------|
-| // aquí condicionales para cada casilla + orientación     |
-| si posición = 1 y orientación = Este entonces posición ← 2 |
-| si posición = 1 y orientación = Sur entonces posición ← 11 |
-| … etc. para todas las combinaciones                    |
-+---------------------------------------------------------+
+<center>
+
+![Función 24](../img/CoCube/scriptImage28561721.png)  
+
+</center>
+
+* **Función 40**
+
+<center>
+
+![Función 24](../img/CoCube/scriptImage28642820.png)  
+
+</center>
+
+* **Función 41**
+
+<center>
+
+![Función 24](../img/CoCube/scriptImage28664520.png)  
+
+</center>
+
+Finalmente programamos el comportamiento mediante un bloque interruptor activo cuando CoCube está situado ```sobre la alfombra```.
+
+<center>
+
+![Bloque interruptor](../img/CoCube/scriptImage29107070.png)  
+
+</center>
+
+El programa completo con las funciones ocultadas y el enlace de descarga del mismo lo tenemos a continuación:
+
+<center>
+
+![Programa CoTag_numeros](../img/CoCube/P_CoTag_numeros.png)  
+**[Descargar P_CoTag_numeros](../program/cocube/CoTag_numeros.ubp)**
+
+</center>
+
+### <FONT COLOR=#AA0000>Funcionamiento del programa</font>
+A continuación se puede ver el funcionamiento del programa partiendo de una de las celdas o casillas de salida, siendo las otras dos similares.
+
+<center>
+
+<iframe width="315" height="560"
+src="https://youtube.com/embed/uy4d_hptk_A?si=17lus90C6zkT9Qas/"
+title="Programa CoTag números"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+
+</center>
