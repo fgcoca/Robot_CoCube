@@ -5,7 +5,7 @@ Federico Coca
 
 * [GitHub](https://github.com/fgcoca)
 
-* [Bluesky](@fgcoca.bsky.social)
+* [Bluesky](https://bsky.app/profile/fgcoca.bsky.social)
 
 * [Instagram](https://www.instagram.com/cocafederico/?hl=es)
 
