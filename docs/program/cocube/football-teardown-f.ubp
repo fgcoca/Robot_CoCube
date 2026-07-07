@@ -1,0 +1,767 @@
+module main
+author unknown
+version 1 0 
+description ''
+variables _cocube_set_left_speed ccmodule_lastDistance _pid__prevMicros _cocube_set_right_speed _cocube_error_angle _servoPin _cocube_target_angle _cocube_error_distance _servoPulseWidth _cocube_target_speed _cocube_error_x _stop_scrolling_text _cocube_target_x _cocube_error_y _toneArezzoNotes _cocube_target_y _cocube_pid_d _toneFrequencies _np_pixels _cocube_pid_i _toneInitalized '_paj7620 initialized' _cocube_pid_initialized _toneLoopOverhead _pid__initialized _cocube_pid_p _toneNoteNames _pid__numPIDs _cocube_pid_ratio _tonePin _pid__prevError _cocube_rotate_mode_ _pid__prevIntegral x y dir x1 y1 dir1 
+
+  spec ' ' 'show-x-y' 'show-x-y'
+  spec ' ' 'show-x1-y1' 'show-x1-y1'
+  spec ' ' 'soccer ball' 'soccer ball'
+  spec ' ' 'draw ball' 'draw ball'
+  spec ' ' 'go shoot ball' 'go shoot ball'
+
+to 'draw ball' {
+  '[tft:circle]' 120 180 30 (colorSwatch 255 255 255 255)
+  '[tft:circle]' 120 180 10 (colorSwatch 72 218 233 255)
+  '[tft:triangle]' 93 170 115 150 110 165 (colorSwatch 72 218 233 255)
+  '[tft:triangle]' 90 180 100 186 103 205 (colorSwatch 72 218 233 255)
+  '[tft:triangle]' 125 150 145 165 135 165 (colorSwatch 72 218 233 255)
+  '[tft:triangle]' 141 184 150 175 140 200 (colorSwatch 72 218 233 255)
+  '[tft:triangle]' 112 209 125 198 136 205 (colorSwatch 72 218 233 255)
+  '[tft:line]' 110 165 120 180 (colorSwatch 72 218 233 255)
+  '[tft:line]' 100 186 120 180 (colorSwatch 72 218 233 255)
+  '[tft:line]' 135 165 120 180 (colorSwatch 72 218 233 255)
+  '[tft:line]' 141 184 120 180 (colorSwatch 72 218 233 255)
+  '[tft:line]' 125 198 120 180 (colorSwatch 72 218 233 255)
+}
+
+to 'go shoot ball' {
+  'ccmodule_gripper close'
+  repeatUntil ((x1 - x) > 20) {
+    'CoCube point towards' 0 y1 30
+    'CoCube move for msecs' 'cocube;backward' 40 1000
+    x1 = ('CoCube position_X')
+  }
+  'ccmodule_gripper open'
+  if ((absoluteValue (y1 - y)) > 20) {
+    'CoCube point towards' x1 y 30
+    'CoCube move to' x1 y 40
+  }
+  'CoCube point towards' x y 30
+  'CoCube move to' x y 40
+  'CoCube point towards' 0 100 15
+  if (x > 150) {
+    repeatUntil (('CoCube position_X') < 150) {
+      'CoCube move for msecs' 'cocube;forward' 30 1000
+      'CoCube point towards' 0 100 20
+    }
+  }
+  'CoCube point towards' 0 100 20
+  'CoCube move for msecs' 'cocube;forward' 15 700
+  'ccmodule_gripper close'
+  waitMillis 1000
+  'ccmodule_gripper open'
+}
+
+to 'show-x-y' {
+  '[tft:text]' ' x   y   dir' 5 5 (colorSwatch 255 255 255 255) 3 true
+  '[tft:text]' x 5 40 (colorSwatch 4 161 255 255) 3 true
+  '[tft:text]' y 80 40 (colorSwatch 4 161 255 255) 3 true
+  '[tft:text]' dir 160 40 (colorSwatch 12 255 156 255) 3 true
+}
+
+to 'show-x1-y1' {
+  '[tft:text]' x1 5 80 (colorSwatch 4 161 255 255) 3 true
+  '[tft:text]' y1 80 80 (colorSwatch 4 161 255 255) 3 true
+  '[tft:text]' dir1 160 80 (colorSwatch 12 255 156 255) 3 true
+}
+
+to 'soccer ball' {
+  '[tft:text]' 'Time to ' 40 10 (colorSwatch 4 161 255 255) 4 true
+  '[tft:text]' 'play ' 70 50 (colorSwatch 4 161 255 255) 4 true
+  '[tft:text]' 'football!' 15 90 (colorSwatch 4 161 255 255) 4 true
+  'draw ball'
+}
+
+script 446 50 {
+forever {
+  graphIt ('CoCube position_X') ('CoCube position_Y') ('CoCube direction')
+}
+}
+
+script 523 148 {
+sayIt ('CoCube position_X') ('CoCube position_Y') ('CoCube direction')
+}
+
+script 320 151 {
+whenStarted
+sayIt 'shoot toward goal at 0, 100'
+'[tft:clear]'
+'soccer ball'
+'ccmodule_gripper open'
+}
+
+script 640 230 {
+whenButtonPressed 'B'
+comment 'going for goal 0, 100'
+sayIt ('CoCube position_X') ('CoCube position_Y')
+x1 = ('CoCube position_X')
+y1 = ('CoCube position_Y')
+dir1 = ('CoCube direction')
+sayIt x y x1 y1
+'show-x1-y1'
+'go shoot ball'
+'[tft:text]' 'Scored?' 60 120 (colorSwatch 4 161 255 255) 3 true
+'draw ball'
+}
+
+script 78 277 {
+whenButtonPressed 'A'
+'[tft:clear]'
+if ('CoCube on the mat') {
+  x = ('CoCube position_X')
+  y = ('CoCube position_Y')
+  dir = ('CoCube direction')
+  'show-x-y'
+} else {
+  '[tft:text]' 'Put CoCube on map
+and try again' 5 5 (colorSwatch 255 17 81 255)
+}
+}
+
+script 371 338 {
+whenButtonPressed 'A+B'
+'ccmodule_gripper close'
+'CoCube wheels stop'
+stopAll
+}
+
+script 538 616 {
+to 'go shoot ball' {}
+}
+
+script 92 660 {
+comment 'set gripper to 30 degrees 
+to test pushing ball
+but best to shoot from 
+gripper fully open'
+'ccmodule_gripper degree' 30
+}
+
+script 109 778 {
+comment 'point toward other goal'
+'CoCube point towards' 300 100 30
+}
+
+script 81 856 {
+'CoCube move for msecs' 'cocube;forward' 40 500
+}
+
+script 529 1529 {
+to 'show-x-y' {}
+}
+
+script 1109 1563 {
+to 'show-x1-y1' {}
+}
+
+script 50 1830 {
+to 'draw ball' {}
+}
+
+script 567 1851 {
+to 'soccer ball' {}
+}
+
+
+module CoCube
+author 'Liang Shuai'
+version 2 11 
+depends Tone Display TFT 'Motors/PID' 
+tags 'cocube robot' 
+choices cocube_rotate_Menu 'cocube;left' 'cocube;right' 
+choices cocube_move_Menu 'cocube;forward' 'cocube;backward' 
+description 'CoCube Robot library
+
+CoCube is a tabletop modular multi-robot platform for education and research.
+https://www.cocubefun.com/
+sliang23@m.fudan.edu.cn
+
+v1.0 Basic functions
+v2.0 Comprehensively add encoder control motor function
+v2.1 Fix some bugs caused by broadcasting
+v2.2 Improve positioning accuracy to 1/128
+v2.3 Add blocks prompts
+v2.4 Unify positioning accuracy to 1/64
+v2.5 Adjust blocks order and delete RingTone
+v2.6 Adjust blocks order, name and default parameters
+v2.11 Improve the "CoCube move to" function logic
+'
+variables _cocube_set_right_speed _cocube_set_left_speed _cocube_error_angle _cocube_pid_i _cocube_pid_ratio _cocube_pid_initialized _cocube_pid_d _cocube_pid_p _cocube_error_distance _cocube_error_y _cocube_error_x _cocube_target_angle 
+
+  spec ' ' 'CoCube move for msecs' 'move _ at _ speed (0-50) for _ msecs' 'menu.cocube_move_Menu num num' 'cocube;forward' 40 1000
+  spec ' ' 'CoCube rotate for msecs' 'rotate _ at _ speed (0-50) for _ msecs' 'menu.cocube_rotate_Menu num num' 'cocube;left' 30 1000
+  space
+  spec ' ' 'CoCube move' 'move _ at _ speed (0-50)' 'menu.cocube_move_Menu num' 'cocube;forward' 40
+  spec ' ' 'CoCube rotate' 'rotate _ at _ speed (0-50)' 'menu.cocube_rotate_Menu num' 'cocube;left' 30
+  spec ' ' 'CoCube set wheel' 'set wheel left _ right _ (-50 to 50)' 'num num' 40 20
+  space
+  spec ' ' 'CoCube wheels stop' 'wheels stop'
+  spec ' ' 'CoCube wheels break' 'wheels break'
+  space
+  spec 'r' 'CoCube position_X' 'X position'
+  spec 'r' 'CoCube position_Y' 'Y position'
+  spec 'r' 'CoCube direction' 'direction'
+  space
+  spec ' ' 'CoCube move by step' 'move _ at _ speed (0-50) by _ steps' 'menu.cocube_move_Menu num num' 'cocube;forward' 40 50
+  spec ' ' 'CoCube rotate by degree' 'rotate _ at _ speed (0-50) by _ degrees' 'menu.cocube_rotate_Menu num num' 'cocube;left' 30 90
+  space
+  spec ' ' 'CoCube rotate to angle' 'rotate to angle _ at _ speed (0-50)' 'num num' 0 30
+  spec ' ' 'CoCube point towards' 'point towards X _ Y _ at _ speed (0-50)' 'num num num' 0 0 30
+  spec ' ' 'CoCube move to' 'move to X _ Y _ at _ speed (0-50)' 'num num num' 0 0 40
+  space
+  spec 'r' 'CoCube on the mat' 'on the mat'
+  spec 'r' 'CoCube card ID' 'card ID'
+  space
+  spec ' ' 'CoCube draw ArUco marker on TFT' 'draw ArUco marker on TFT _' 'num' 0
+  spec ' ' 'CoCube draw AprilTag on TFT' 'draw AprilTag on TFT _' 'num' 0
+  spec ' ' 'CoCube set TFT backlight' 'set TFT backlight _' 'bool' false
+  space
+  spec 'r' 'CoCube battery percentage' 'battery percentage'
+  space
+  spec ' ' '_cocube_motors_speed' '_cocube_motors_speed left _ right _' 'num num' 10 10
+  spec ' ' '_cocube_pid_init' '_cocube_pid_init'
+  spec ' ' '_cocube_pid_left_motor' '_cocube_pid_left_motor'
+  spec ' ' '_cocube_pid_right_motor' '_cocube_pid_right_motor'
+  spec ' ' '_cocube_calculate_angle_error_' '_cocube_calculate_angle_error angle _' 'num' 0
+  spec ' ' '_cocube_calculate_distance_error target_x _ target_y _' '_cocube_calculate_distance_error Target_X _ Target_Y _' 'num num' 0 0
+
+to 'CoCube battery percentage' {
+  return (minimum (((254 * ('[misc:rescale]' (analogReadOp 34) 0 1023 0 3300)) - 680000) / 1600) 100)
+}
+
+to 'CoCube card ID' {
+  return (callCustomReporter '[sensors:cube_index]')
+}
+
+to 'CoCube direction' {
+  return (callCustomReporter '[sensors:position_yaw]')
+}
+
+to 'CoCube draw AprilTag on TFT' id {
+  comment '0 <= id < 100'
+  if (id >= 100) {
+    sayIt '0 <= id < 100'
+  } else {
+    callCustomCommand '[tft:aprilTag]' ('[data:makeList]' id)
+  }
+}
+
+to 'CoCube draw ArUco marker on TFT' id {
+  comment '0 <= id < 100'
+  if (id >= 100) {
+    sayIt '0 <= id < 100'
+  } else {
+    callCustomCommand '[tft:aruco]' ('[data:makeList]' id)
+  }
+}
+
+to 'CoCube move' direction speed {
+  if (direction == 'cocube;forward') {
+    'CoCube set wheel' speed speed
+  } else {
+    'CoCube set wheel' (0 - speed) (0 - speed)
+  }
+}
+
+to 'CoCube move by step' direction speed steps {
+  if ('CoCube on the mat') {
+    local 'begin_x' ('CoCube position_X')
+    local 'begin_y' ('CoCube position_Y')
+    'CoCube move' direction speed
+    forever {
+      '_cocube_calculate_distance_error target_x _ target_y _' begin_x begin_y
+      if ((steps - _cocube_error_distance) < 2) {
+        'CoCube wheels break'
+        comment 'wait for break function 200ms'
+        waitMillis 210
+        return 0
+      }
+    }
+  } else {
+    sayIt 'Please put CoCube on Mat'
+  }
+}
+
+to 'CoCube move for msecs' direction speed time {
+  'CoCube move' direction speed
+  waitMillis time
+  'CoCube wheels break'
+}
+
+to 'CoCube move to' target_x target_y speed {
+  if ('CoCube on the mat') {
+    speed = speed
+    '_cocube_calculate_distance_error target_x _ target_y _' target_x target_y
+    if (_cocube_error_distance > 7) {
+      'CoCube point towards' target_x target_y speed
+      repeatUntil (_cocube_error_distance < 7) {
+        '_cocube_calculate_distance_error target_x _ target_y _' target_x target_y
+        _cocube_target_angle = (('[misc:atan2]' _cocube_error_y _cocube_error_x) / 100)
+        '_cocube_calculate_angle_error_' _cocube_target_angle
+        'CoCube set wheel' (speed - ((speed * _cocube_error_angle) / 20)) (speed + ((speed * _cocube_error_angle) / 20))
+        waitMillis 10
+      }
+      'CoCube wheels break'
+      return 0
+    }
+  } else {
+    sayIt 'Please put CoCube on Mat'
+  }
+}
+
+to 'CoCube on the mat' {
+  return (callCustomReporter '[sensors:cube_status]')
+}
+
+to 'CoCube point towards' target_x target_y speed {
+  _cocube_target_angle = (('[misc:atan2]' (target_y - ('CoCube position_Y')) (target_x - ('CoCube position_X'))) / 100)
+  'CoCube rotate to angle' _cocube_target_angle speed
+}
+
+to 'CoCube position_X' {
+  return ((callCustomReporter '[sensors:position_x]') / 64)
+}
+
+to 'CoCube position_Y' {
+  return ((callCustomReporter '[sensors:position_y]') / 64)
+}
+
+to 'CoCube rotate' direction speed {
+  if (direction == 'cocube;left') {
+    'CoCube set wheel' (0 - speed) speed
+  } else {
+    'CoCube set wheel' speed (0 - speed)
+  }
+}
+
+to 'CoCube rotate by degree' direction speed degree {
+  if ('CoCube on the mat') {
+    local 'begin_degree' ('CoCube direction')
+    forever {
+      if (direction == 'cocube;left') {
+        '_cocube_calculate_angle_error_' (begin_degree + degree)
+      } else {
+        '_cocube_calculate_angle_error_' (begin_degree - degree)
+      }
+      if (_cocube_error_angle > 1) {
+        comment 'turn left'
+        '_cocube_motors_speed' (0 - speed) speed
+      } (_cocube_error_angle < -1) {
+        comment 'turn right'
+        '_cocube_motors_speed' speed (0 - speed)
+      } else {
+        comment 'motors break'
+        '_cocube_motors_speed' -99 -99
+        return 0
+      }
+    }
+  } else {
+    sayIt 'Please put CoCube on Mat'
+  }
+}
+
+to 'CoCube rotate for msecs' direction speed time {
+  'CoCube rotate' direction speed
+  waitMillis time
+  'CoCube wheels break'
+}
+
+to 'CoCube rotate to angle' angle speed {
+  if ('CoCube on the mat') {
+    local 'abs_speed' (absoluteValue speed)
+    forever {
+      '_cocube_calculate_angle_error_' angle
+      if (_cocube_error_angle > 1) {
+        comment 'turn left'
+        '_cocube_motors_speed' (0 - abs_speed) abs_speed
+      } (_cocube_error_angle < -1) {
+        comment 'turn right'
+        '_cocube_motors_speed' abs_speed (0 - abs_speed)
+      } else {
+        comment 'motors break'
+        '_cocube_motors_speed' -99 -99
+        return 0
+      }
+    }
+  } else {
+    sayIt 'Please put CoCube on Mat'
+  }
+}
+
+to 'CoCube set TFT backlight' state {
+  if state {
+    '[tft:setBacklight]' 10
+  } else {
+    '[tft:setBacklight]' 0
+  }
+}
+
+to 'CoCube set wheel' speed_left speed_right {
+  _cocube_set_left_speed = speed_left
+  _cocube_set_right_speed = speed_right
+  sendBroadcast '_cocube_pid_left_motor'
+  sendBroadcast '_cocube_pid_right_motor'
+}
+
+to 'CoCube wheels break' {
+  'CoCube set wheel' -99 -99
+}
+
+to 'CoCube wheels stop' {
+  'CoCube set wheel' 0 0
+}
+
+to '_cocube_calculate_angle_error_' angle {
+  _cocube_error_angle = ((angle % 360) - ('CoCube direction'))
+  if (_cocube_error_angle > 180) {
+    _cocube_error_angle += -360
+  } (_cocube_error_angle < -180) {
+    _cocube_error_angle += 360
+  }
+}
+
+to '_cocube_calculate_distance_error target_x _ target_y _' target_x target_y {
+  _cocube_error_x = (target_x - ('CoCube position_X'))
+  _cocube_error_y = (target_y - ('CoCube position_Y'))
+  _cocube_error_distance = ('[misc:sqrt]' ((_cocube_error_x * _cocube_error_x) + (_cocube_error_y * _cocube_error_y)))
+}
+
+to '_cocube_motors_speed' left_speed right_speed {
+  comment 'without pid control'
+  if (and (left_speed == 0) (right_speed == 0)) {
+    digitalWriteOp 9 false
+    digitalWriteOp 10 false
+    digitalWriteOp 26 false
+    digitalWriteOp 25 false
+  } (and (left_speed == -99) (right_speed == -99)) {
+    digitalWriteOp 9 true
+    digitalWriteOp 10 true
+    digitalWriteOp 26 true
+    digitalWriteOp 25 true
+    waitMillis 200
+    digitalWriteOp 9 false
+    digitalWriteOp 10 false
+    digitalWriteOp 26 false
+    digitalWriteOp 25 false
+  } else {
+    if (left_speed > 0) {
+      analogWriteOp 9 ((4 * (absoluteValue left_speed)) + 36)
+      digitalWriteOp 10 false
+    } else {
+      digitalWriteOp 9 false
+      analogWriteOp 10 ((4 * (absoluteValue left_speed)) + 36)
+    }
+    if (right_speed > 0) {
+      analogWriteOp 26 ((4 * (absoluteValue right_speed)) + 36)
+      digitalWriteOp 25 false
+    } else {
+      digitalWriteOp 26 false
+      analogWriteOp 25 ((4 * (absoluteValue right_speed)) + 36)
+    }
+  }
+}
+
+to '_cocube_pid_init' {
+  if (not _cocube_pid_initialized) {
+    _cocube_pid_p = 320
+    _cocube_pid_i = 1
+    _cocube_pid_d = 3
+    _cocube_pid_ratio = 1000
+    _cocube_pid_initialized = 1
+  }
+}
+
+to '_cocube_pid_left_motor' {
+  '_cocube_pid_init'
+  pid_resetPID 1
+  local 'var' 0
+  forever {
+    if (_cocube_set_left_speed == 0) {
+      comment 'speed = 0 :motor stop'
+      digitalWriteOp 9 false
+      digitalWriteOp 10 false
+      return 0
+    } (_cocube_set_left_speed == -99) {
+      comment 'speed = -99 : motor break'
+      digitalWriteOp 9 true
+      digitalWriteOp 10 true
+      waitMillis 200
+      digitalWriteOp 9 false
+      digitalWriteOp 10 false
+      return 0
+    } else {
+      comment 'PID control'
+      var = ((((4 * (absoluteValue _cocube_set_left_speed)) + 36) + (pid_computePID 1 ((18 * (absoluteValue _cocube_set_left_speed)) - (callCustomReporter '[sensors:speed_left]')) _cocube_pid_p _cocube_pid_i _cocube_pid_d 0)) / _cocube_pid_ratio)
+      if (_cocube_set_left_speed > 0) {
+        analogWriteOp 9 var
+        digitalWriteOp 10 false
+      } else {
+        analogWriteOp 10 var
+        digitalWriteOp 9 false
+      }
+    }
+  }
+}
+
+to '_cocube_pid_right_motor' {
+  '_cocube_pid_init'
+  pid_resetPID 2
+  local 'var' 0
+  forever {
+    if (_cocube_set_right_speed == 0) {
+      comment 'speed = 0 :motor stop'
+      digitalWriteOp 26 false
+      digitalWriteOp 25 false
+      return 0
+    } (_cocube_set_right_speed == -99) {
+      comment 'speed = -99 : motor break'
+      digitalWriteOp 26 true
+      digitalWriteOp 25 true
+      waitMillis 200
+      digitalWriteOp 26 false
+      digitalWriteOp 25 false
+      return 0
+    } else {
+      comment 'PID control'
+      var = ((((4 * (absoluteValue _cocube_set_right_speed)) + 36) + (pid_computePID 2 ((18 * (absoluteValue _cocube_set_right_speed)) - (callCustomReporter '[sensors:speed_right]')) _cocube_pid_p _cocube_pid_i _cocube_pid_d 0)) / _cocube_pid_ratio)
+      if (_cocube_set_right_speed > 0) {
+        analogWriteOp 26 var
+        digitalWriteOp 25 false
+      } else {
+        analogWriteOp 25 var
+        digitalWriteOp 26 false
+      }
+    }
+  }
+}
+
+
+module 'CoCube Module'
+author 'Liang Shuai'
+version 1 9 
+depends Servo NeoPixel 'Robots/CoCube' 'Sensing/Distance (VL53L0X)' 'Sensing/Gesture (PAJ7620)' 
+description 'External modules of CoCube.
+
+CoCube is a tabletop modular multi-robot platform for education and research.
+https://www.cocubefun.com/
+sliang23@m.fudan.edu.cn
+
+Note: All functions start by turning on pin 13 to power the module.
+The power pin is off by default and is also turned off by the IDE stop button.'
+variables ccmodule_lastDistance 
+
+  spec ' ' 'ccmodule_gripper open' 'gripper open'
+  spec ' ' 'ccmodule_gripper close' 'gripper close'
+  spec ' ' 'ccmodule_gripper degree' 'gripper degrees _ (0 to 70)' 'num' 0
+  space
+  spec ' ' 'ccmodule_attach NeoPixels' 'attach NeoPixels'
+  spec ' ' 'ccmodule_set all NeoPixels color' 'set all NeoPixels color _' 'color'
+  spec ' ' 'ccmodule_clear NeoPixels' 'clear NeoPixels'
+  space
+  spec 'r' 'ccmodule_ToF connected' 'ToF connected'
+  spec 'r' 'ccmodule_ToF distance' 'ToF distance (mm)'
+  space
+  spec 'r' 'ccmodule_gesture connected' '3D gesture connected'
+  spec 'r' 'ccmodule_gesture read' '3D gesture read'
+  space
+  spec ' ' 'ccmodule_power on module' 'power on module'
+  space
+  spec 'r' '_ccmodule_ultrasonic distance' 'ultrasonic distance (mm)'
+
+to '_ccmodule_ultrasonic distance' {
+  local 'trig' 21
+  local 'echo' 22
+  comment 'Reset pulse capture system.'
+  local 'ignore' ('[sensors:captureEnd]')
+  digitalWriteOp trig false
+  waitMicros 2
+  digitalWriteOp trig true
+  waitMicros 50
+  digitalWriteOp trig false
+  comment 'Wait for a low-to-high edge on the echo pin.
+Timeout if an edge is not detected. '
+  local 'start' (millisOp)
+  waitUntil (or (not (digitalReadOp echo)) ((millisSince start) > 2))
+  waitUntil (or (digitalReadOp echo) ((millisSince start) > 2))
+  if ((millisSince start) > 2) {
+    comment 'Distance sensor not ready; return the last distance reading'
+    return ccmodule_lastDistance
+  }
+  comment 'Starting pulse was sent. Measure time until echo is detected.'
+  '[sensors:captureStart]' echo
+  start = (millisOp)
+  waitUntil (or (('[sensors:captureCount]') > 0) ((millisSince start) > 25))
+  comment 'Default value of 23320 usecs reports 4000 mm
+when no echo is detected.'
+  local 'echoMicrosecs' 23320
+  if (('[sensors:captureCount]') > 0) {
+    echoMicrosecs = (absoluteValue (at 1 ('[sensors:captureEnd]')))
+  }
+  ccmodule_lastDistance = ((100 * echoMicrosecs) / 583)
+  comment 'Leave some time for reverberations to die away.'
+  waitMillis 10
+  return ccmodule_lastDistance
+}
+
+to 'ccmodule_ToF connected' {
+  stopServo 22
+  digitalWriteOp 13 true
+  return ('VL53L0X connected')
+}
+
+to 'ccmodule_ToF distance' {
+  stopServo 22
+  digitalWriteOp 13 true
+  return ('VL53L0X distance (mm)')
+}
+
+to 'ccmodule_attach NeoPixels' {
+  stopServo 22
+  digitalWriteOp 13 true
+  waitMillis 10
+  neoPixelAttach 48 22
+}
+
+to 'ccmodule_clear NeoPixels' {
+  digitalWriteOp 13 true
+  clearNeoPixels
+}
+
+to 'ccmodule_gesture connected' {
+  stopServo 22
+  digitalWriteOp 13 true
+  return ('paj7620 connected')
+}
+
+to 'ccmodule_gesture read' {
+  stopServo 22
+  digitalWriteOp 13 true
+  return ('paj7620 read')
+}
+
+to 'ccmodule_gripper close' {
+  digitalWriteOp 13 true
+  setServoAngle 22 -70
+}
+
+to 'ccmodule_gripper degree' degree {
+  digitalWriteOp 13 true
+  local 'var' (degree - 70)
+  if (var < -70) {
+    setServoAngle 22 -70
+  } (var > 0) {
+    setServoAngle 22 0
+  } else {
+    setServoAngle 22 var
+  }
+}
+
+to 'ccmodule_gripper open' {
+  digitalWriteOp 13 true
+  setServoAngle 22 0
+}
+
+to 'ccmodule_power on module' {
+  digitalWriteOp 13 true
+}
+
+to 'ccmodule_set all NeoPixels color' color {
+  digitalWriteOp 13 true
+  neoPixelSetAllToColor color
+}
+
+
+module TFT Output
+author MicroBlocks
+version 1 12 
+description 'Draw graphics and write text on boards with a TFT display, such as the M5Stack, M5Stick, Citilab ED1 or (discontinued) IoT-Bus.'
+
+  spec ' ' '[tft:clear]' 'clear TFT display'
+  space
+  spec ' ' '[tft:rect]' 'draw rectangle on TFT at x _ y _ width _ height _ color _ : filled _' 'num num num num color bool' 10 10 40 30 nil true
+  spec ' ' '[tft:roundedRect]' 'draw rounded rectangle on TFT at x _ y _ width _ height _ radius _ color _ : filled _' 'num num num num num color bool' 10 10 40 30 8 nil true
+  spec ' ' '[tft:circle]' 'draw circle on TFT at x _ y _ radius _ color _ : filled _' 'num num num color bool' 40 40 30 nil true
+  spec ' ' '[tft:triangle]' 'draw triangle on TFT at x _ y _ , x _ y _ , x _ y _ color _ : filled _' 'num num num num num num color bool' 20 20 30 80 60 5 nil true
+  spec ' ' '[tft:line]' 'draw line on TFT from x _ y _ to x _ y _ color _' 'num num num num color' 12 8 25 15
+  spec ' ' 'tft_drawVector' 'draw vector x _ y _ angle _ length _ color _' 'num num num num color' 40 40 45 40
+  space
+  spec ' ' '[tft:text]' 'write _ on TFT at x _ y _ color _ : scale _ wrap _ : bg color _' 'str num num color num bool color' 'Hello World!' 5 5 nil 2 true
+  spec ' ' 'tft_drawText' 'draw text _ on TFT at x _ y _ color _ : scale _ : bg color _' 'str num num color num color' 'Line 1
+Line 2' 50 20 nil 2
+  space
+  spec ' ' '[tft:setPixel]' 'set TFT pixel x _ y _ to _' 'num num color' 10 10
+  spec ' ' '[tft:pixelRow]' 'draw pixel row _ x _ y _ : bytesPerPixel _ : palette _' 'auto num num num str' 'aList' 0 0 4
+  spec ' ' '[tft:drawBitmap]' 'draw bitmap _ palette _ on TFT at x _ y _' 'str str num num' 'aBitmap' 'a list of colors' 10 10
+  space
+  spec 'r' 'tft_colorSwatch' '_' 'color'
+  spec 'r' 'makeColor' 'color r _ g _ b _ (0-255)' 'num num num' 0 100 100
+  spec 'r' 'makeGray' 'gray _ %' 'num' 50
+  spec 'r' 'randomColor' 'random color'
+  space
+  spec 'r' '[tft:getWidth]' 'TFT width'
+  spec 'r' '[tft:getHeight]' 'TFT height'
+  space
+  spec ' ' '[tft:setBacklight]' 'set TFT backlight _ (0-10)' 'num' 10
+  space
+  spec ' ' '_deferMonochromeDisplayUpdates' '_defer monochrome display updates'
+  spec ' ' '_resumeMonochromeDisplayUpdates' '_resume monochrome display updates'
+
+to '_deferMonochromeDisplayUpdates' {
+  '[tft:deferUpdates]'
+}
+
+to '_resumeMonochromeDisplayUpdates' {
+  '[tft:resumeUpdates]'
+}
+
+to makeColor r g b {
+  r = (maximum 0 (minimum r 255))
+  g = (maximum 0 (minimum g 255))
+  b = (maximum 0 (minimum b 255))
+  return ((r << 16) | ((g << 8) | b))
+}
+
+to makeGray percent {
+  gray = ((percent * 255) / 100)
+  gray = (maximum 0 (minimum gray 255))
+  return ((gray << 16) | ((gray << 8) | gray))
+}
+
+to randomColor {
+  local 'n1' (random 100 200)
+  local 'n2' (random 0 100)
+  if (1 == (random 1 3)) {
+    return ((n1 << 16) | (n2 << 8))
+  } (1 == (random 1 2)) {
+    return ((n2 << 16) | n1)
+  } else {
+    return ((n1 << 8) | n2)
+  }
+}
+
+to tft_colorSwatch color {
+  return color
+}
+
+to tft_drawText s x y color optionalScale optionalBGColor {
+  s = ('[data:convertType]' s 'string')
+  local 'scale' (argOrDefault 5 2)
+  local 'bgColor' (argOrDefault 6 '')
+  local 'lines' ('[data:split]' s ('[data:unicodeString]' 10))
+  for line ('[data:split]' s ('[data:unicodeString]' 10)) {
+    if (isType bgColor 'number') {
+      '[tft:text]' line x y color scale false bgColor
+    } else {
+      '[tft:text]' line x y color scale false
+    }
+    y += (8 * scale)
+  }
+}
+
+to tft_drawVector x y angle length color {
+  local 'endX' (x + ((length * ('[misc:sin]' (100 * (angle + 90)))) >> 14))
+  local 'endY' (y + ((length * ('[misc:sin]' (100 * angle))) >> 14))
+  '[tft:line]' x y endX endY color
+}
+

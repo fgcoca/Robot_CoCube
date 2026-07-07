@@ -1,0 +1,5 @@
+.md-typeset hr {
+  border-bottom: 1px solid #888; /* Cambia el color si es necesario */
+  display: block;
+  margin: 1em 0;
+}
