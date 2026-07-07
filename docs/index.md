@@ -1,11 +1,7 @@
 
 En esta web vamos a encontrar contenidos sobre CoCube, un robot educativo de escritorio que incorpora inteligencia artificial. CoCube es un robot muy pequeño que integra comunicación inalámbrica, pantalla, interacción por voz y otras funciones. Incorpora una batería que le permite moverse con flexibilidad.
 
-<center>
-
-![Robot CoCube, ligero y portátil](./img/CoCube/lig_port.png)  
-
-</center>
+![Robot CoCube, ligero y portátil](./img/CoCube/lig_port.png){style="display: block; margin: 0 auto;"}
 
 CoCube es un robot educativo de escritorio que incorpora inteligencia artificial, desarrollado conjuntamente por un equipo de estudiantes de máster y doctorado de las universidades Shanghái Jiao Tong y Fudan, con el objetivo de acercar la inteligencia artificial a los jóvenes y crear una plataforma creativa llena de interactividad, logros y diversión. CoCube estimula la curiosidad y la creatividad de los estudiantes al involucrarlos en el diseño de robots de IA, desde la programación simple hasta la construcción de sistemas interactivos complejos, y les ayuda a convertir sus ideas e inspiraciones en realidad.
 
