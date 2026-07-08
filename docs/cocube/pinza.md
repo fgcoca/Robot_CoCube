@@ -4,11 +4,7 @@ El robot CoCube se puede utilizar junto con módulos externos para implementar f
 ## <FONT COLOR=#007575>**Materiales**</font>
 Robot CoCube, pinza con servomotor y ordenador ejecutando el IDE de MicroBlocks.
 
-<center>
-
-![Materiales](../img/CoCube/mat05.png)
-
-</center>
+![Materiales](../img/CoCube/mat05.png){.center-img}
 
 ## <FONT COLOR=#007575>**Programación**</font>
 
@@ -16,11 +12,7 @@ Robot CoCube, pinza con servomotor y ordenador ejecutando el IDE de MicroBlocks.
 
 **2.** **Cargar libreria de módulos externos**: haz clic en añadir libreria, escoge la opción "Robots" y en la nueva ventana "CoCube Module".
 
-<center>
-
-![Cargar libreria de módulos externos](../img/CoCube/CC_Modules.png)
-
-</center>
+![Cargar libreria de módulos externos](../img/CoCube/CC_Modules.png){.center-img}
 
 * **Bloques para la pinza**: Haz clic en "CoCube Module" en la biblioteca de bloques de la izquierda y arrastra los tres bloques que afectan a la pinza "abre la pinza", "cierra la pinza" y "pon la pinza a (0 a 70 grados)" al espacio de trabajo.
 
@@ -28,21 +20,15 @@ Robot CoCube, pinza con servomotor y ordenador ejecutando el IDE de MicroBlocks.
 
 En el ejemplo siguiente vemos este funcionamiento.
 
-<center>
+![Ejemplo de uso de la pinza](../img/CoCube/abrir_cerrar_pinza.gif){.center-img}
 
-![Ejemplo de uso de la pinza](../img/CoCube/abrir_cerrar_pinza.gif)  
 *[Descargar programa](../program/cocube/abrir_cerrar_pinza.ubp)*
-
-</center>
 
 ## <FONT COLOR=#007575>**Reto: Mover un objeto entre dos puntos con CoCube**</font>
 Utilizar Cocube para que sujete un objeto entre sus pinzas y lo mueva desde una localización inicial hasta el punto E del mapa del laberinto.
 
 El programa sería el siguiente:
 
-<center>
+![Mover un objeto](../img/CoCube/mover_objeto.gif){.center-img}
 
-![Mover un objeto](../img/CoCube/mover_objeto.gif)  
-[Descargar programa](../program/cocube/mover_objeto.ubp)
-
-</center>
+*[Descargar programa](../program/cocube/mover_objeto.ubp)*

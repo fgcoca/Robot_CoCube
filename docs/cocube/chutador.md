@@ -26,11 +26,7 @@ Al iniciar el programa:
 * Luego muestra el mensaje “Pulsa A” en color amarillo para indicar al usuario que debe presionar el botón A.
 * Finalmente, abre la pinza del robot
 
-<center>
-
-![Bloque al empezar](../img/CoCube/B_alempezar_chutador.png)  
-
-</center>
+![Bloque al empezar](../img/CoCube/B_alempezar_chutador.png){.center-img50}
 
 ## <FONT COLOR=#007575>**Al presionar el botón A**</font>
 * Comprueba si el CoCube está sobre el tapete (CoMap). Si sí lo está:
@@ -61,9 +57,6 @@ CoMap
 !!! Warning "Aviso"
     Para que el programa funcione correctamente hay que añadir las bibliotecas PID y servomotor si no están ya agregadas
 
-<center>
+![Programa lanzador de balones](../img/CoCube/chutador.png){.center-img}
 
-![Programa lanzador de balones](../img/CoCube/chutador.png)  
-**[Descarga programa chutador.ubp](../program/cocube/chutador.ubp)**
-
-</center>
+*[Descarga programa chutador.ubp](../program/cocube/chutador.ubp)*

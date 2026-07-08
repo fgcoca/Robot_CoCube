@@ -3,31 +3,19 @@ Utilizar la función de reconocimiento de bloques de color del sensor de visión
 
 El video siguiente muestra la idea que se pretende programar.
 
-<center>
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bXq0cMlPjwQ?si=4CgMK46Iow98Y7U5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-</center>
 
 ## <FONT COLOR=#007575>**Materiales**</font>
 Robot CoCube, conector soporte para Sentry2 y ordenador ejecutando el IDE de MicroBlocks en cualquiera de sus versiones, estable instalada localmente o versiones online tanto estable como pilot. En cualquier caso tenemos que añadir las bibliotecas **CoCube**, **CoCube module** y **Sentry2 AI camera**.
 
-<center>
-
-![Materiales](../img/CoCube/mat08.png)
-
-</center>
+![Materiales](../img/CoCube/mat08.png){.center-img}
 
 Hay que realizar la conexión de de dispostivos colocando el soporte para la Sentry2, con la cámara colocada, en el conector de expansión del CoCube. El conector con 4 cables hay que colocarlo en el conector I2C de la cámara.
 
 ## <FONT COLOR=#007575>**Información de algoritmos de Sentry2**</font>
 ### <FONT COLOR=#AA0000>Introducción</font>
 
-<center>
-
-![Color](../img/CoCube/color.png)  
-
-</center>
+![Color](../img/CoCube/color.png){.center-img}
 
 El usuario especifica uno o más colores para detectar si hay manchas de ese color en la imagen, devolviendo sus coordenadas y tamaño. Admite la detección multicolor y multibloque, y las etiquetas de clasificación de colores son las mismas que las del reconocimiento de colores.
 
@@ -69,11 +57,7 @@ Los valores predeterminados en el sistema de coordenadas porcentuales son: 1x1, 
 
 * **Colores a inspeccionar.** Se proporciona en forma de botón para que el usuario lo seleccione. Cuando se habilita un color, se muestra un pequeño icono con forma de ojo; si no está habilitado, se muestra un icono con forma de ojo tachado. Se pueden habilitar uno o más colores simultáneamente.
 
-<center>
-
-![Colores a inspeccionar](../img/CoCube/id2_result.png)  
-
-</center>
+![Colores a inspeccionar](../img/CoCube/id2_result.png){.center-img}
 
 Una vez que se reconoce el bloque de color especificado, se marcará en la interfaz de usuario y mostrará su ubicación, tamaño, etiqueta de clasificación, nombre y otra información.
 
@@ -89,11 +73,7 @@ Cuando se leen los registros a través del maestro, se devuelven los siguientes 
 
 Nos aseguramos de tener blob configurado como en la imagen siguiente:
 
-<center>
-
-![Colores a inspeccionar](../img/CoCube/conf_blob_color.png)  
-
-</center>
+![Colores a inspeccionar](../img/CoCube/conf_blob_color.png){.center-img}
 
 ### <FONT COLOR=#AA0000>Consejos de uso</font>
 1. Cuando se determina que es necesario rastrear un único objeto, como detectar una carretera blanca o seguir una pelota, se puede establecer el número de bloques de color en 1 para mejorar la velocidad y reducir los falsos positivos.
@@ -107,29 +87,17 @@ Es un parámetro opcional que determina la dirección I2C del dispositivo. El va
 
 Antes de poder usar Sentry2, debes inicializarla mediante el bloque de la imagen, que por lo general, se coloca debajo de un bloque tipo sombrero "al empezar".
 
-<center>
-
-![Bloque para inicializar Sentry2](../img/CoCube/B_inic_sentry2.png)  
-
-</center>
+![Bloque para inicializar Sentry2](../img/CoCube/B_inic_sentry2.png){.center-img30}
 
 - **Modo configuración de Sentry2**
 
-<center>
-
-![Bloque modo configuración de Sentry2](../img/CoCube/B_mod_config_sentry2.png)  
-
-</center>
+![Bloque modo configuración de Sentry2](../img/CoCube/B_mod_config_sentry2.png){.center-img30}
 
 Para este caso hay que establecer el modo en 'blob', es decir, el modo de detección de bloques de color.
 
 - **Resultados de las pruebas de Sentry2**
 
-<center>
-
-![Bloque resultados de las pruebas de Sentry2](../img/CoCube/B_res_pruebas_sentry2.png)  
-
-</center>
+![Bloque resultados de las pruebas de Sentry2](../img/CoCube/B_res_pruebas_sentry2.png){.center-img30}
 
 Este bloque debe utilizarse para activar la detección antes de obtener resultados.
 
@@ -139,11 +107,7 @@ El número de resultados se verá afectado por la configuración de parámetros 
 
 - **Sentry2 detección de los atributos del objeto**
 
-<center>
-
-![Bloque detección de los atributos del objeto](../img/CoCube/B_detec_atrib_sentry2.png)  
-
-</center>
+![Bloque detección de los atributos del objeto](../img/CoCube/B_detec_atrib_sentry2.png){.center-img30}
 
 Devuelve las propiedades del identificador del objeto detectado, incluida la coordenada x central del bloque de color, la coordenada y del centro del bloque de color, el ancho del bloque de color w, la altura del bloque de color h y la etiqueta de clasificación de color.
 
@@ -151,21 +115,13 @@ Las etiquetas de clasificación por colores van del 1 al 6, y representan el neg
 
 - **set blob check color red ... green ... blue ...** (**establecer color de detección de bloque**)
 
-<center>
-
-![Bloque set blob check color red ... green ... blue ...](../img/CoCube/B_set_blob_check_color.png)  
-
-</center>
+![Bloque set blob check color red ... green ... blue ...](../img/CoCube/B_set_blob_check_color.png){.center-img50}
 
 El bloque permite ajustar el color de detección del bloque (blob) de entre los posibles que son: **negro, blanco, rojo, verde, azul y amarillo**.
 
 Tiene el mismo efecto que si lo hacemos desde la configuración de blob con el joystick:
 
-<center>
-
-![Configuración color detección blob en Sentry2](../img/CoCube/conf_blob_color.png)  
-
-</center>
+![Configuración color detección blob en Sentry2](../img/CoCube/conf_blob_color.png){.center-img}
 
 ## <FONT COLOR=#007575>**Programación de ejemplo base**</font>
 
@@ -175,20 +131,13 @@ Tiene el mismo efecto que si lo hacemos desde la configuración de blob con el j
 
 <font color=#FF0000>**&#x2462**</font> Debajo de un bloque sombrero "al empezar" coloca el bloque "activa la alimentación del módulo" para que la Sentry2 se alimente a través del conector I2C. A continuación inicializa la interfaz I2C y coloca una espera de 4 segundos para dar tiempo a que el módulo de la cámara se inicie correctamente y, a continuación, establece el modo de algoritmo de la cámara en modo blob para el reconocimiento de bloques de color. Finalmente establece como color de detección por ejemplo rojo.
 
-<center>
-
-![Programa "al comenzar"](../img/CoCube/P_detec_color_ini.png)  
-
-</center>
+![Programa "al comenzar"](../img/CoCube/P_detec_color_ini.png){.center-img}
 
 <font color=#FF0000>**&#x2463**</font> Bajo un bloque sombrero "cuando" se comprueba continuamente si se detectan manchas de color Blob de color rojo. Cuando el número de objetos detectados sea 1, se muestran los cinco atributos de esa mancha u objeto. Puedes observar la posición, el tamaño y la etiqueta de color de la mancha en tiempo real.
 
-<center>
+![Programa detectar bloque de color](../img/CoCube/P_detec_color.png){.center-img}
 
-![Programa detectar bloque de color](../img/CoCube/P_detec_color.png)  
-**[Descargar el programa](../program/cocube/Reconocimiento_color_Sentry2.ubp)**
-
-</center>
+*[Descargar el programa](../program/cocube/Reconocimiento_color_Sentry2.ubp)*
 
 ## <FONT COLOR=#007575>**Programación seguir objeto de color azul**</font>
 Ten en cuenta que debes configurar los parámetros de reconocimiento de bloques de color de la cámara Sentry2 para cambiar el color rojo por defecto que trae de fábrica al color azul.
@@ -201,9 +150,6 @@ Ten en cuenta que debes configurar los parámetros de reconocimiento de bloques 
 
 <font color=#FF0000>**&#x2463**</font> Bajo un bloque sombrero "cuando" se comprueba continuamente si se detectan manchas de color Blob azules. Si es cierto el robot avanza y si el color desaparece el robot se detiene.
 
-<center>
+![Programa seguir color azul](../img/CoCube/P_seguir_azul.png){.center-img}
 
-![Programa seguir color azul](../img/CoCube/P_seguir_azul.png)  
-**[Descargar el programa](../program/cocube/CoCube_sigue_azul.ubp)**
-
-</center>
+*[Descargar el programa](../program/cocube/CoCube_sigue_azul.ubp)*

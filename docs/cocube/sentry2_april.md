@@ -25,22 +25,14 @@ Puedes imprimir etiquetas AprilTag de las especificaciones y tamaños adecuados 
 
 Necesitamos los siguientes materiales:
 
-<center>
-
-![Materiales](../img/CoCube/mat08.png)
-
-</center>
+![Materiales](../img/CoCube/mat08.png){.center-img}
 
 Hay que realizar la conexión de de dispostivos colocando el soporte para la Sentry2, con la cámara colocada, en el conector de expansión del CoCube. El conector con 4 cables hay que colocarlo en el conector I2C de la cámara.
 
 ## <FONT COLOR=#007575>**Información de algoritmos de Sentry2**</font>
 ### <FONT COLOR=#AA0000>Introducción</font>
 
-<center>
-
-![AprilTag](../img/CoCube/id3_res.png)  
-
-</center>
+![AprilTag](../img/CoCube/id3_res.png){.center-img50}
 
 El algoritmo detecta si hay un patrón Apriltag en la imagen. Actualmente, admite los formatos de codificación 16H5, 25H9 y 36H11. El método de decodificación debe especificarse antes de ejecutar el algoritmo. No es posible detectar simultáneamente diferentes formatos de codificación, pero sí hasta 25 etiquetas del mismo formato a la vez.
 
@@ -49,11 +41,7 @@ El algoritmo detecta si hay un patrón Apriltag en la imagen. Actualmente, admit
 
 ### <FONT COLOR=#AA0000>Categorías</font>
 
-<center>
-
-![Familias de etiquetas AprilTag](../img/CoCube/etq_apriltag.png)  
-
-</center>
+![Familias de etiquetas AprilTag](../img/CoCube/etq_apriltag.png){.center-img}
 
 Las etiquetas Apriltag son patrones cuadrados en blanco y negro con diferentes formatos de codificación y distintos números de cuadrados. Cada patrón tiene un valor de etiqueta de clasificación predefinido que se devuelve tras el reconocimiento.
 
@@ -61,19 +49,11 @@ Puedes imprimir etiquetas AprilTag de las especificaciones y tamaños adecuados 
 
 Cuando imprimimos nuestras propias etiquetas AprilTags es muy importante dejar alrededor del fondo negro un marco de color blanco (u otro color) para que el sensor Sentry2 pueda definir correctamente los límites de la etiqueta. Si no dejamos dicho borde no puede delimitar el tamaño y no reconocerá la misma. La imagen aclara lo que debemos y no debemos hacer:
 
-<center>
-
-![Borde en las etiquetas AprilTags](../img/CoCube/bordeApril.png)  
-
-</center>
+![Borde en las etiquetas AprilTags](../img/CoCube/bordeApril.png){.center-img}
 
 ### <FONT COLOR=#AA0000>Configuración de parámetros</font>
 
-<center>
-
-![Configuración de parámetros](../img/CoCube/id3_param.png)  
-
-</center>
+![Configuración de parámetros](../img/CoCube/id3_param.png){.center-img}
 
 En la interfaz de usuario, puedes configurar el rendimiento del algoritmo y la familia de codificación.
 
@@ -95,11 +75,7 @@ Al hacer clic en el botón, se pueden recorrer los tres modos de codificación: 
 
 ### <FONT COLOR=#AA0000>Devolución de resultados</font>
 
-<center>
-
-![Devolución de resultados](../img/CoCube/id3_resul.png)  
-
-</center>
+![Devolución de resultados](../img/CoCube/id3_resul.png){.center-img}
 
 Cuando se reconoce una etiqueta, se devuelven sus coordenadas, tamaño y número de etiqueta.
 
@@ -124,27 +100,17 @@ Es un parámetro opcional que determina la dirección I2C del dispositivo. El va
 
 Antes de poder usar Sentry2, debes inicializarla mediante el bloque de la imagen, que por lo general, se coloca debajo de un bloque tipo sombrero "al empezar".
 
-<center>
-
-![Bloque para inicializar Sentry2](../img/CoCube/B_inic_sentry2.png)  
-
-</center>
+![Bloque para inicializar Sentry2](../img/CoCube/B_inic_sentry2.png){.center-img30}
 
 - **Establecer modo de Sentry2**
 
-<center>
-
-![Bloque Establecer modo de Sentry2](../img/CoCube/B_est_modo_sentry2_april.png)  
-
-</center>
+![Bloque Establecer modo de Sentry2](../img/CoCube/B_est_modo_sentry2_april.png){.center-img40}
 
 Debes establecer el modo en AprilTag, es decir, el modo de reconocimiento tarjetas AprilTag.
 
 - **Resultados de las pruebas de Sentry2**
 
-<center>
-
-![Bloque resultados de las pruebas de Sentry2](../img/CoCube/B_res_pruebas_sentry2.png)  
+![Bloque resultados de las pruebas de Sentry2](../img/CoCube/B_res_pruebas_sentry2.png){.center-img30}
 
 </center>
 
@@ -158,11 +124,7 @@ El número de resultados se ve afectado por la configuración de parámetros del
 
 - **Sentry2 detección de atributos del objeto AprilTag**
 
-<center>
-
-![Bloque detección de atributos del objeto AprilTag](../img/CoCube/B_sentry2_apriltag_detec.png)  
-
-</center>
+![Bloque detección de atributos del objeto AprilTag](../img/CoCube/B_sentry2_apriltag_detec.png){.center-img40}
 
 Devuelve las propiedades del identificador del objeto detectado, incluida la coordenada x central de la etiqueta AprilTag, la coordenada y del centro de la etiqueta AprilTag, el ancho de la etiqueta AprilTag, la altura de la etiqueta AprilTag y el número de la etiqueta AprilTag.
 
@@ -174,41 +136,24 @@ Devuelve las propiedades del identificador del objeto detectado, incluida la coo
 
 <font color=#FF0000>**&#x2462**</font> Debajo de un bloque sombrero "al empezar" coloca el bloque "activa la alimentación del módulo" para que la Sentry2 se alimente a través del conector I2C. A continuación inicializa la interfaz I2C y coloca una espera de 4 segundos para dar tiempo a que el módulo de la cámara se inicie correctamente y, a continuación, establece el modo de algoritmo de la cámara en modo AprilTag.
 
-<center>
-
-![Programa "al comenzar"](../img/CoCube/P_detec_april_ini.png)  
-
-</center>
+![Programa "al comenzar"](../img/CoCube/P_detec_april_ini.png){.center-img}
 
 <font color=#FF0000>**&#x2463**</font> Ahora vamos a utilizar el bloque "Sentry2 detect mode", para determinar si hay resultado en la detección.
 
-<center>
-
-![Bloque Sentry2 detect mode](../img/CoCube/B_sentry2_detect_mode.png)  
-
-</center>
+![Bloque Sentry2 detect mode](../img/CoCube/B_sentry2_detect_mode.png){.center-img}
 
 Cuando "Sentry2 detect mode" es 1, se presentan por pantalla los 5 atributos de la detección de etiquetas AprilTag.
 
-<center>
-
-![Información de los parámetros de detección de AprilTag](../img/CoCube/Sentry2_detect_mode_param_april.png)  
-
-</center>
+![Información de los parámetros de detección de AprilTag](../img/CoCube/Sentry2_detect_mode_param_april.png){.center-img}
 
 El código completo del programa lo vemos en la imagen siguiente y bajo la misma está el enlace de descarga del mismo.
 
-<center>
+![Programación ejemplo base de AprilTag](../img/CoCube/P_ejem_base_april.png){.center-img}
 
-![Programación ejemplo base de AprilTag](../img/CoCube/P_ejem_base_april.png)  
-**[Descargar el programa](../program/cocube/CoCube_AprilTag.ubp)**
-
-</center>
+*[Descargar el programa](../program/cocube/CoCube_AprilTag.ubp)*
 
 ## <FONT COLOR=#007575>**Programación de ejemplo de control**</font>
 Vamos a crear un programa que haga que CoCube se dirija hacía una etiqueta AprilTag 16h5 visible y que según el ID de la tarjeta detectada realice una tarea diferente, por ejemplo:
-
-<center>
 
 |ID del AprilTag|Acción del Robot|
 |:-:|---|
@@ -217,7 +162,5 @@ Vamos a crear un programa que haga que CoCube se dirija hacía una etiqueta Apri
 |2|Gira a la derecha|
 |3|Se detiene|
 |4|Retrocede|
-
-</center>
 
 En esta ocasión el ejemplo se deja como ejercicio propuesto para el lector.

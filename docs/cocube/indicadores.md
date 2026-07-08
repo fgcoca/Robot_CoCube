@@ -6,11 +6,7 @@
 
 En esta ocasión vamos a trabajar sobre un CoTag extensión del numérico visto. Se trata del tapete de señales de la imagen siguiente:
 
-<center>
-
-![CoTag indicadores](../img/CoCube/CoTag_indicadores.png)  
-
-</center>
+![CoTag indicadores](../img/CoCube/CoTag_indicadores.png){.center-img}
 
 A continuación se dan sendos enlaces para su descarga:
 
@@ -28,8 +24,6 @@ A continuación se dan sendos enlaces para su descarga:
 
 El listado de asignaciones es el siguiente:
 
-<center>
-
 |Función|Lectura|Descripción/Parámetro|
 |:-:|:-:|---|
 |move forward|1|Hace avanzar el robot una distancia fija|
@@ -44,8 +38,6 @@ El listado de asignaciones es el siguiente:
 |180º|24|Ángulo de giro de 180°|
 |Start|40|Iniciar lecturas|
 |End|41|Finalizar programa|
-
-</center>
 
 La idea es configurar las variables para que:
 
@@ -109,11 +101,7 @@ En resumen, esta función o bloque de código:
 
 En la imagen siguiente tenemos el esta función expresada en modo gráfico:
 
-<center>
-
-![Función ```leer_comando```](../img/CoCube/func_leer_comando.png)  
-
-</center>
+![Función ```leer_comando```](../img/CoCube/func_leer_comando.png){.center-img50}
 
 ####<FONT COLOR=#0000FF>**&#129094; Broadcast "al recibir 'adelante'"**</font>
 
@@ -141,11 +129,7 @@ En resumen: Dibuja un rectangulo azul con un texto blanco que corresponde al nom
 
 En la imagen siguiente vemos esta función:
 
-<center>
-
-![Función `miBloque_nombre](../img/CoCube/func_miBloque_nombre.png)  
-
-</center>
+![Función `miBloque_nombre](../img/CoCube/func_miBloque_nombre.png){.center-img75}
 
 * ```miBloque_parametros foo bar```
 
@@ -161,11 +145,7 @@ En resumen: Muestra el valor o parámetro asociado a un comando (por ejemplo: �
 
 En la imagen siguiente vemos esta función:
 
-<center>
-
-![Función `miBloque_parametros](../img/CoCube/func_miBloque_parametros.png)  
-
-</center>
+![Función `miBloque_parametros](../img/CoCube/func_miBloque_parametros.png){.center-img75}
 
 **&#129030; Bloque principal**
 
@@ -177,8 +157,6 @@ Este bloque reacciona al mensaje emitido desde la función ```leer_comando``` y 
 ####<FONT COLOR=#0000FF>**&#129094; Interpretación de comandos**</font>
 
 Luego hay una serie de condiciones que interpretan el valor del comando:
-
-<center>
 
 |ID del comando|Acción|Bloque usado|Texto mostrado|
 |:-:|---|---|:-:|
@@ -193,54 +171,33 @@ Luego hay una serie de condiciones que interpretan el valor del comando:
 |23|Parámetro|```miBloque_nombre```|135º|
 |24|Parámetro|```miBloque_nombre```|180º|
 
-</center>
-
 Así, dependiendo del ID leído, se muestra un nombre de comando (izquierda), o su parámetro asociado (a la derecha).
 
 El bloque broadcast ```al recibir...``` es el siguiente:
 
-<center>
-
-![Bloque broadcast ```al recibir...```](../img/CoCube/B_al_recibir_adelante.png)  
-
-</center>
+![Bloque broadcast ```al recibir...```](../img/CoCube/B_al_recibir_adelante.png){.center-img50}
 
 ####<FONT COLOR=#0000FF>**&#129094; Programa**</font>
 El programa completo con las funciones ocultas (disponibles en Mis bloques) listo para su descarga lo vemos en la imagen siguiente:
 
-<center>
+![Programa Obtener_pares_valores](../img/CoCube/Obtener_pares_valores.png){.center-img}
 
-![Programa Obtener_pares_valores](../img/CoCube/Obtener_pares_valores.png)  
-***[Descargar el programa: Obtener_pares_valores.ubp](../program/cocube/Obtener_pares_valores.ubp)***
-
-</center>
+*[Descargar el programa: Obtener_pares_valores.ubp](../program/cocube/Obtener_pares_valores.ubp)*
 
 En la animación siguiente vemos como capturar pares de valores:
 
-<center>
-
-![Pantalla de CoCube con pares de valores](../img/CoCube/Obtener_pares_valores.gif)  
-
-</center>
+![Pantalla de CoCube con pares de valores](../img/CoCube/Obtener_pares_valores.gif){.center-img}
 
 En la imagen siguiente vemos la pantalla de CoCube tras una serie de pares de valores capturados:
 
-<center>
-
-![Pantalla de CoCube con pares de valores](../img/CoCube/pares_valores_obtenidos.png)  
-
-</center>
+![Pantalla de CoCube con pares de valores](../img/CoCube/pares_valores_obtenidos.png){.center-img50}
 
 ### <FONT COLOR=#AA0000>Ejecutar pares de valores</font>
 Ahora vamos a evolucionar el programa anterior para que, una vez obtenidos los pares de valores, CoCube se mueva sobre un tapetete según la secuencia que capturemos.
 
 Para ello vamos a definir una nueva función ("Mis Bloques") que denominaremos ```ejecutar_comando``` y que será invocada cuando pulsemos el botón B. Su aspecto es el de la imagen siguiente:
 
-<center>
-
-![Función ejecutar_comando](../img/CoCube/F_ejecutar_comando.png)  
-
-</center>
+![Función ejecutar_comando](../img/CoCube/F_ejecutar_comando.png){.center-img75}
 
 Se crea una variable local que servirá como **índice** para recorrer la lista de comandos (lista_comandos) de dos en dos.
 
@@ -266,25 +223,14 @@ Dependiendo del valor del **comando**, CoCube ejecuta una instrucción distinta:
 ####<FONT COLOR=#0000FF>**&#129094; Programa**</font>
 El programa completo listo para su descarga lo vemos en la imagen siguiente:
 
-<center>
+![Programa Ejecutar_pares_valores](../img/CoCube/Ejecutar_pares_valores.png){.center-img}
 
-![Programa Ejecutar_pares_valores](../img/CoCube/Ejecutar_pares_valores.png)  
-***[Descargar el programa: Ejecutar_pares_valores.ubp](../program/cocube/Ejecutar_pares_valores.ubp)***
-
-</center>
+*[Descargar el programa: Ejecutar_pares_valores.ubp](../program/cocube/Ejecutar_pares_valores.ubp)*
 
 Si por ejemplo hacemos la lectura de valores de la imagen siguiente haremos que CoCube se mueva describiendo un cuadrado al ponerlo sobre un tapete y pulsar el botón B.
 
-<center>
-
-![Lectura comandos para cuadrado](../img/CoCube/cuadrado.png)  
-
-</center>
+![Lectura comandos para cuadrado](../img/CoCube/cuadrado.png){.center-img50}
 
 En la animación siguiente vemos el funcionamiento tras esa lectura:
 
-<center>
-
-![Lectura comandos para cuadrado](../img/CoCube/cuadrado.gif)  
-
-</center>
+![Lectura comandos para cuadrado](../img/CoCube/cuadrado.gif){.center-img}

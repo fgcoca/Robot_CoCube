@@ -17,38 +17,22 @@ A continuación se muestra la información obtenida con la herramienta **ESPConn
 
 ### <FONT COLOR=#AA0000>Información del dispositivo</font>
 
-<center>
-
-![Información](./img/info/info.png)  
-
-</center>
+![Información](./img/info/info.png){.center-img}
 
 ### <FONT COLOR=#AA0000>Tabla de particiones</font>
 Mapa gráfico más una tabla detallada de cada entrada de partición, incluidos tamaños, desplazamientos y flash no utilizado.
 
-<center>
-
-![Pariticiones](./img/info/part.png)  
-
-</center>
+![Pariticiones](./img/info/part.png){.center-img}
 
 ### <FONT COLOR=#AA0000>Aplicaciones</font>
 En ESP32 "OTA Slot Insights" se refiere al análisis, comprensión y gestión de cómo se utilizan las particiones de memoria flash ("slots" o ranuras). En esta pestaña se consulta qué ranura está activa, junto con los metadatos de compilación, los tamaños y otros detalles de identificación para saber siempre qué firmware se está ejecutando.
 
-<center>
-
-![Aplicaciones](./img/info/apps.png)  
-
-</center>
+![Aplicaciones](./img/info/apps.png){.center-img}
 
 ### <FONT COLOR=#AA0000>NVS</font>
 NVS (Non-Volatile Storage) es un sistema de almacenamiento no volátil basado en la memoria flash, diseñado para guardar pares clave-valor (como configuraciones WiFi, estados de sensores) que persisten incluso tras apagar o reiniciar el dispositivo. Utiliza una partición específica, siendo más eficiente que la EEPROM y ideal para pequeñas cantidades de datos.
 
-<center>
-
-![NVS](./img/info/nvs.png)  
-
-</center>
+![NVS](./img/info/nvs.png){.center-img}
 
 ### <FONT COLOR=#AA0000>Herramientas SPIFFS, LittleFS y FATFS</font>
 SPIFFS, LittleFS y FATFS son sistemas de archivos utilizados en el ESP32 para gestionar almacenamiento no volátil en la memoria flash interna o externa.

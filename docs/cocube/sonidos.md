@@ -4,11 +4,7 @@ Programar el robot CoCube para que reproduzaca sonidos y melodias.
 ## <FONT COLOR=#007575>**Materiales**</font>
 Robot CoCube y ordenador ejecutando el IDE de MicroBlocks.
 
-<center>
-
-![Materiales](../img/CoCube/mat01.png)
-
-</center>
+![Materiales](../img/CoCube/mat01.png){.center-img}
 
 ## <FONT COLOR=#007575>**Programación**</font>
 El robot CoCube está equipado con un zumbador que se puede programar para emitir sonidos de diferentes tonos y ajustar la duración del tono y el intervalo de tiempo para completar la composición y la reproducción.
@@ -29,12 +25,9 @@ Arrastra varios bloques y modifica la frecuencia y la duración de cada uno para
 
 **6.** **Detener el sonido**: Para detener el sonido del zumbador, utiliza el bloque "detén el sonido". Simplemente haz clic en el bloque en el área de bloques o arrástralo al área de trabajo y haz clic en él, y CoCube dejará de reproducir el sonido inmediatamente.
 
-<center>
+![Sonidos básicos](../img/CoCube/sonido_basico.png)
 
-![Sonidos básicos](../img/CoCube/sonido_basico.png)  
 *[Descargar programa](../program/cocube/sonido_basico.ubp)*
-
-</center>
 
 ## <FONT COLOR=#007575>**Funciones avanzadas de sonido**</font>
 Es muy tedioso tener que buscar el contraste entre notas y frecuencias tú mismo. ¿Hay alguna manera más fácil? En MicroBlocks se ofrecen dos métodos sencillos.
@@ -42,20 +35,13 @@ Es muy tedioso tener que buscar el contraste entre notas y frecuencias tú mismo
 ### <FONT COLOR=#AA0000>Notas</font>
 En música, las notas c, d, e, f, g, a y b se pueden usar para representar Do-Re-Mi-Fa-Sol-Si. Un sostenido (♯) eleva el tono en un semitono, y las octavas (0, 1, 2…) indican tonos graves, medios, agudos, etc.
 
-<center>
-
-![Notas](../img/CoCube/notas.png)  
-
-</center>
+![Notas](../img/CoCube/notas.png){.center-img}
 
 El programa siguiente es un intento de reproducción de una parte del Himno de la alegria.
 
-<center>
+![Himno de la alegria](../img/CoCube/himno_alegria.png){.center-img}
 
-![Himno de la alegria](../img/CoCube/himno_alegria.png)  
 *[Descargar programa](../program/cocube/himno_alegria.ubp)*
-
-</center>
 
 ### <FONT COLOR=#AA0000>Melodias MIDI</font>
 En un teclado MIDI, el número de nota MIDI corresponde al tono de la música y se utiliza principalmente en la producción de música digital y la comunicación entre instrumentos musicales.
@@ -66,12 +52,9 @@ Por ejemplo, 60 representa el do central del piano, 61 representa si bemol y 62 
 
 El programa siguiente crea un efecto musical:
 
-<center>
+![Melodias MIDI](../img/CoCube/melodias_MIDI.png){.center-img}
 
-![Melodias MIDI](../img/CoCube/melodias_MIDI.png)  
 *[Descargar programa](../program/cocube/melodias_MIDI.ubp)*
-
-</center>
 
 ### <FONT COLOR=#AA0000>Politonos</font>
 El formato [RTTTL](https://en.wikipedia.org/wiki/Ring_Tone_Text_Transfer_Language) (del inglés, Ring Tone Text Transfer Language) fue desarrollado por Nokia para codificar tonos de llamada a teléfonos móviles. El formato RTTTL es una cadena dividida en tres secciones: encabezado (nombre o título), valor predeterminado y datos. Por ejemplo, la siguiente cadena de texto se corresponde con la Intro de Donkey Kong:
@@ -142,10 +125,9 @@ En el formato RTTTL se permiten octavas comenzando desde la A por debajo del do 
 
 En el ejemplo siguiente suena un politono u otro dependiendo del botón que pulsemos en CoCube.
 
-<center>
+![Ejemplo básico de politonos](../img/CoCube/ejem_politonos.png){.center-img}
 
-![Ejemplo básico de politonos](../img/CoCube/ejem_politonos.png)  
-[Descargar programa](../program/cocube/ejem_politonos.ubp)
+*[Descargar programa](../program/cocube/ejem_politonos.ubp)*
 
 </center>
 
@@ -154,9 +136,6 @@ Utilizar Cocube para reproducir "Twinkle, Twinkle, Little Star" (Estrellita dón
 
 El programa sería el siguiente:
 
-<center>
+![Reproducir canción con CoCube](../img/CoCube/TwinkleLittleStar.png)
 
-![Reproducir canción con CoCube](../img/CoCube/TwinkleLittleStar.png)  
-[Descargar programa](../program/cocube/TwinkleLittleStar.ubp)
-
-</center>
+*[Descargar programa](../program/cocube/TwinkleLittleStar.ubp)*

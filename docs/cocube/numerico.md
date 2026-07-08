@@ -1,8 +1,6 @@
 ## <FONT COLOR=#007575>**Introducción**</font>
 Veamos un enunciado general: Se dispone de un tablero con una configuración de cuadrados de 5x5 cm numerados con esta estructura:
 
-<center>
-
 <table>
   <tr>
     <td>1</td>
@@ -25,7 +23,6 @@ Veamos un enunciado general: Se dispone de un tablero con una configuración de 
     <td>41</td>
   </tr>
 </table>
-</center>
 
 Los cuadrados están separados 13 mm en horizontal y 10 mm en vertical.
 
@@ -58,23 +55,16 @@ Si el robot está sobre la alfombra (CoTag detectado):
 ### <FONT COLOR=#AA0000>Programa en MicroBlocks</font>
 El programa completo y el enlace de descarga del mismo lo tenemos a continuación:
 
-<center>
+![Movimiento básico por CoTag numérico](../img/CoCube/P_Mov_basico_CoTag_num.png){.center-img}
 
-![Movimiento básico por CoTag numérico](../img/CoCube/P_Mov_basico_CoTag_num.png)  
-**[Descargar P_Mov_basico_CoTag_num](../program/cocube/P_Mov_basico_CoTag_num.ubp)**
-
-</center>
+*[Descargar P_Mov_basico_CoTag_num](../program/cocube/P_Mov_basico_CoTag_num.ubp)*
 
 ## <FONT COLOR=#007575>**Recorrer todo el CoTag numérico**</font>
 Trabajando sobre el mismo CoTag que en el ejemplo anterior, ahora la idea es definir un recorrido que comience en una de las celdas de la fila inferior (24, 40 o 41) y que recorra todo el tablero pasando por todas las celdas excepto la de inicio. El recorrido lo debe resolver CoCube identificando cada cuadrado por su número o ID mostrándo durante todo el recorrido la celda de partida. CoCube también sabe la orientación en grados que tiene sobre el tablero que sería así respecto a la parte delantera del robot situado en la celda 12 mirando hacia 22: 12-Robot orientado a 22 -> 0 grados; 13 -> 90 grados; 2 -> 180 grados y 11 -> 270 grados.
 
 En la imagen siguiente podemos ver estos detalles:
 
-<center>
-
-![CoTags números](../img/CoCube/cotags_num.png)  
-
-</center>
+![CoTags números](../img/CoCube/cotags_num.png){.center-img}
 
 A continuación se dan sendos enlaces para descargar los correspondientes CoTags:
 
@@ -113,11 +103,7 @@ A continuación se dan sendos enlaces para descargar los correspondientes CoTags
 
 * Los incrementos de ángulo son en sentido horario (ej. de 0° a 90° gira a la derecha).
 
-<center>
-
-![Puntos cardinales](../img/CoCube/cotags_num_p_cardinales.png)  
-
-</center>
+![Puntos cardinales](../img/CoCube/cotags_num_p_cardinales.png){.center-img50}
 
 **4. Movimientos permitidos**
 
@@ -207,64 +193,37 @@ Fin: todas las celdas distintas de la inicial (41) han sido visitadas.
 ### <FONT COLOR=#AA0000>Programa en MicroBlocks</font>
 Comenzamos por definir el bloque ```al empezar``` de la forma siguiente:
 
-<center>
-
-![Bloque ```al empezar```](../img/CoCube/scriptImage27045879.png)  
-
-</center>
+![Bloque ```al empezar```](../img/CoCube/scriptImage27045879.png){.center-img75}
 
 Para simplificar y hacer mas legible el programa se definen tres funciones (una para cada celda de salida) que definen los recorridos indicados.
 
 * **Función 24**
 
-<center>
-
-![Función 24](../img/CoCube/scriptImage28561721.png)  
-
-</center>
+![Función 24](../img/CoCube/scriptImage28561721.png){.center-img50}
 
 * **Función 40**
 
-<center>
-
-![Función 24](../img/CoCube/scriptImage28642820.png)  
-
-</center>
+![Función 24](../img/CoCube/scriptImage28642820.png){.center-img50}
 
 * **Función 41**
 
-<center>
-
-![Función 24](../img/CoCube/scriptImage28664520.png)  
-
-</center>
+![Función 24](../img/CoCube/scriptImage28664520.png){.center-img50}
 
 Finalmente programamos el comportamiento mediante un bloque interruptor activo cuando CoCube está situado ```sobre la alfombra```.
 
-<center>
-
-![Bloque interruptor](../img/CoCube/scriptImage29107070.png)  
-
-</center>
+![Bloque interruptor](../img/CoCube/scriptImage29107070.png){.center-img50}
 
 El programa completo con las funciones ocultadas y el enlace de descarga del mismo lo tenemos a continuación:
 
-<center>
+![Programa CoTag_numeros](../img/CoCube/P_CoTag_numeros.png){.center-img}
 
-![Programa CoTag_numeros](../img/CoCube/P_CoTag_numeros.png)  
-**[Descargar P_CoTag_numeros](../program/cocube/CoTag_numeros.ubp)**
-
-</center>
+*[Descargar P_CoTag_numeros](../program/cocube/CoTag_numeros.ubp)*
 
 ### <FONT COLOR=#AA0000>Funcionamiento del programa</font>
 A continuación se puede ver el funcionamiento del programa partiendo de una de las celdas o casillas de salida, siendo las otras dos similares.
-
-<center>
 
 <iframe width="315" height="560"
 src="https://youtube.com/embed/uy4d_hptk_A?si=17lus90C6zkT9Qas/"
 title="Programa CoTag números"
 frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-
-</center>

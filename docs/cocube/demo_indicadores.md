@@ -31,19 +31,11 @@ El propósito es mostrar al usuario las opciones de inicio:
 
 La función es la siguiente:
 
-<center>
-
-![Función ```Pant_inicial```](../img/CoCube/Func_Pant_inicial.png)  
-
-</center>
+![Función ```Pant_inicial```](../img/CoCube/Func_Pant_inicial.png){.center-img50}
 
 El resultado que se ve en la pantalla de CoCube es:
 
-<center>
-
-![Función ```Pant_inicial```](../img/CoCube/Func_Pant_inicial_real.png)  
-
-</center>
+![Función ```Pant_inicial```](../img/CoCube/Func_Pant_inicial_real.png){.center-img50}
 
 ### <FONT COLOR=#AA0000>Funciones ```myBlock_name``` y ```myBlock_param```</font>
 Estos dos bloques sirven para dibujar visualmente los comandos y sus parámetros en pantalla.
@@ -52,11 +44,7 @@ Estos dos bloques sirven para dibujar visualmente los comandos y sus parámetros
 
 Dibuja un rectángulo con el nombre del comando (por ejemplo “Move”, “Right”, “Left”) en una posición determinada según bar.
 
-<center>
-
-![Función ```myBlock_name```](../img/CoCube/Func_myBlock_name.png)  
-
-</center>
+![Función ```myBlock_name```](../img/CoCube/Func_myBlock_name.png){.center-img75}
 
 * **```myBlock_param foo bar```**
 
@@ -64,19 +52,11 @@ Muestra el parámetro asociado a ese comando (por ejemplo, distancia o ángulo).
 
 Así, cada comando leído se va mostrando en pantalla como una lista ordenada visualmente.
 
-<center>
-
-![Funciones ```myBlock_name``` y ```myBlock_param```](../img/CoCube/pares_valores_obtenidos.png)  
-
-</center>
+![Funciones ```myBlock_name``` y ```myBlock_param```](../img/CoCube/pares_valores_obtenidos.png){.center-img50}
 
 La función es la siguiente:
 
-<center>
-
-![Función ```myBlock_param```](../img/CoCube/Func_myBlock_param.png)  
-
-</center>
+![Función ```myBlock_param```](../img/CoCube/Func_myBlock_param.png){.center-img50}
 
 ### <FONT COLOR=#AA0000>Función **```read_command```**</font>
 Este es el núcleo de lectura de tarjetas CoTag de indicadores.
@@ -92,11 +72,7 @@ Cuando se agrega un nuevo comando, envía una señal broadcast 'adelante!'.
 
 En resumen: **Lee CoTags o tarjetas físicas**, las clasifica como comandos o parámetros, y las va guardando en una lista de ejecución.
 
-<center>
-
-![Función ```read_command```](../img/CoCube/Func_read_command.png)  
-
-</center>
+![Función ```read_command```](../img/CoCube/Func_read_command.png){.center-img50}
 
 ### <FONT COLOR=#AA0000>Función **```run_command```**</font>
 Se encarga de ejecutar los comandos guardados en ```command_list```.
@@ -110,11 +86,7 @@ Se encarga de ejecutar los comandos guardados en ```command_list```.
 
 Por ejemplo: Si command=1 y param=12, el robot avanza una distancia proporcional a (param - 10) * 50.
 
-<center>
-
-![Función ```run_command```](../img/CoCube/Func_run_command.png)  
-
-</center>
+![Función ```run_command```](../img/CoCube/Func_run_command.png){.center-img50}
 
 ### <FONT COLOR=#AA0000>Evento Broadcast 'adelante!'</font>
 Cada vez que se lee una tarjeta nueva se  recibe una comunicación 'adelante!':
@@ -123,11 +95,7 @@ Cada vez que se lee una tarjeta nueva se  recibe una comunicación 'adelante!':
 * Muestra en pantalla el nuevo comando o parámetro mediante los bloques ```myBlock_name``` y ```myBlock_param```.
 * Así el usuario puede ver la secuencia de comandos que va construyendo.
 
-<center>
-
-![Evento Broadcast 'adelante!'](../img/CoCube/Evento_Broadcast.png)  
-
-</center>
+![Evento Broadcast 'adelante!'](../img/CoCube/Evento_Broadcast.png){.center-img50}
 
 ### <FONT COLOR=#AA0000>Botones</font>
 * Cuando se pulsa el botón 'A':
@@ -136,22 +104,14 @@ Cada vez que se lee una tarjeta nueva se  recibe una comunicación 'adelante!':
       * Muestra mensajes de “Escoge comando”.
       * Llama a ```read_command``` para iniciar la lectura de tarjetas.
 
-<center>
-
-![Cuando se pulsa el botón 'A'](../img/CoCube/Cuando_pulsa_A.png)  
-
-</center>
+![Cuando se pulsa el botón 'A'](../img/CoCube/Cuando_pulsa_A.png){.center-img75}
 
 * Cuando se pulsa el botón 'B':
 
       * Detiene todos los procesos previos.
       * Llama a ```run_command``` para ejecutar las órdenes almacenadas.
 
-<center>
-
-![Cuando se pulsa el botón 'B'](../img/CoCube/Cuando_pulsa_B.png)  
-
-</center>
+![Cuando se pulsa el botón 'B'](../img/CoCube/Cuando_pulsa_B.png){.center-img50}
 
 * Cuando se pulsan los botones 'A+B':
 
@@ -159,11 +119,7 @@ Cada vez que se lee una tarjeta nueva se  recibe una comunicación 'adelante!':
       * Muestra un mensaje de “Reset / comenzar”.
       * Detiene todas las tareas (reinicio total).
 
-<center>
-
-![Cuando se pulsan los botones 'A+B'](../img/CoCube/Cuando_pulsa_AB.png)  
-
-</center>
+![Cuando se pulsan los botones 'A+B'](../img/CoCube/Cuando_pulsa_AB.png){.center-img50}
 
 ## <FONT COLOR=#007575>**Tarjetas especiales**</font>
 El script ```cuando true``` revisa constantemente si el CoCube está sobre el tapete lector:
@@ -171,20 +127,12 @@ El script ```cuando true``` revisa constantemente si el CoCube está sobre el ta
 * Si detecta la tarjeta con ID 40 (Start) → envía 'inicio'.
 * Al recibir el mensaje de broadcast se muestran mensajes en pantalla y se llama a ```read_command```
 
-<center>
-
-![Evento ```inicio```](../img/CoCube/Evento_inicio.png)  
-
-</center>
+![Evento ```inicio```](../img/CoCube/Evento_inicio.png){.center-img}
 
 * Si detecta la tarjeta con ID 41 (End) → envía 'fin'.
 * Al recibir el mensaje de broadcast se muestran mensajes en pantalla y se detiene el programa hasta un nuevo inicio.
 
-<center>
-
-![Evento ```fin```](../img/CoCube/Evento_fin.png)  
-
-</center>
+![Evento ```fin```](../img/CoCube/Evento_fin.png){.center-img}
 
 Luego, los eventos '```inicio```' y '```fin```' muestran pantallas animadas con esos mensajes y controlan el flujo general.
 
@@ -206,8 +154,6 @@ El programa implementa una interfaz visual y física de programación secuencial
 
 El programa completo listo para la descarga lo vemos a continuación:
 
-<center>
+![Programa Demo CoTag indicadores](../img/CoCube/Demo_CoTag_indicadores.png){.center-img}
 
-![Programa Demo CoTag indicadores](../img/CoCube/Demo_CoTag_indicadores.png)  
-***[Descargar el programa Demo_CoTag_indicadores](../program/cocube/Demo_CoTag_indicadores.ubp)***
-</center>
+*[Descargar el programa Demo_CoTag_indicadores](../program/cocube/Demo_CoTag_indicadores.ubp)*

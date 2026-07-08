@@ -115,6 +115,10 @@ El robot CoCube se puede ampliar fácilmente a través de conectores magnéticos
 |Visión artificial|![](./img/CoCube/vis_art.png)|Con procesados K210 de 64 bits RISC-V integra algoritmos de visión como reconocimiento de color, de tarjetas, de caras, AprilTag (etiquetas visuales), códigos QR, que facilitan la creación de aplicaciones con visión artificial|
 
 ## <FONT COLOR=#007575>**Plataforma gráfica de programación**</font>
+Esta web está enlazada dentro de [MicroBlocks Learn](https://learn.microblocks.fun/en/index) en [Other resources](https://learn.microblocks.fun/en/other-resources) bajo el epígrafe ***Fede's CoCube tutorials*** del apartado **Activities and Tutorials**.
+
+![Fede's CoCube tutorials](./img/CoCube/Enlace_en_microblocks_learn.png){.center-img}
+
 En cuanto a la arquitectura de software, el objetivo de CoCube es ofrecer una experiencia de programación fácil de usar, manteniendo la flexibilidad y escalabilidad para soportar su hardware modular. El sistema utiliza MicroBlocks para el desarrollo del firmware y bibliotecas de bloques, con interfaces de comunicación para APIs avanzadas que permitan realizar tareas.
 
 Basado en la plataforma MicroBlocks, CoCube se puede programar directamente en el navegador sin necesidad de descargarlo ni instalarlo.

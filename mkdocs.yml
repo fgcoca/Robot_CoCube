@@ -69,7 +69,7 @@ nav:
     - Lanza balones: cocube/chutador.md
     - ¿Donde estoy? Laberinto: cocube/posicion.md
     - Creative Map: cocube/universal.md
-    - CoCube y M5STACK S3: cocube/chatIA.md
+    #- CoCube y M5STACK S3: cocube/chatIA.md
 
 
 #- Ayuda:

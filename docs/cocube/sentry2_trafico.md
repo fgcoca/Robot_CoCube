@@ -5,31 +5,19 @@ Durante el proceso, se aprende sobre la tecnología de inteligencia artificial e
 
 El video siguiente muestra la idea que se pretende programar.
 
-<center>
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Um1ZYU-2KoY?si=CZfQYAnOj_tsyaNN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-</center>
 
 ## <FONT COLOR=#007575>**Materiales**</font>
 Robot CoCube, conector soporte para Sentry2, tarjetas de tráfico del kit y ordenador ejecutando el IDE de MicroBlocks en cualquiera de sus versiones, estable instalada localmente o versiones online tanto estable como pilot. En cualquier caso tenemos que añadir las bibliotecas **CoCube**, **CoCube module** y **Sentry2 AI camera**.
 
-<center>
-
-![Materiales](../img/CoCube/mat09.png)
-
-</center>
+![Materiales](../img/CoCube/mat09.png){.center-img}
 
 Hay que realizar la conexión de de dispostivos colocando el soporte para la Sentry2, con la cámara colocada, en el conector de expansión del CoCube. El conector con 4 cables hay que colocarlo en el conector I2C de la cámara.
 
 ## <FONT COLOR=#007575>**Información de algoritmos de Sentry2**</font>
 ### <FONT COLOR=#AA0000>Introducción</font>
 
-<center>
-
-![Color](../img/CoCube/id6_res.png)  
-
-</center>
+![Color](../img/CoCube/id6_res.png){.center-img50}
 
 Identifica si hay patrones de tarjetas específicos en la imagen y devuelva información como las coordenadas de las tarjetas, el tamaño, las etiquetas de clasificación, etc. Incluye señales de tráfico, símbolos gráficos y números. Las etiquetas de clasificación se muestran en la tabla siguiente.
 
@@ -45,11 +33,7 @@ Identifica si hay patrones de tarjetas específicos en la imagen y devuelva info
 
 ### <FONT COLOR=#AA0000>Devolución de resultados</font>
 
-<center>
-
-![Devolución de resultados](../img/CoCube/id6_resul.png)  
-
-</center>
+![Devolución de resultados](../img/CoCube/id6_resul.png){.center-img}
 
 Este algoritmo admite el reconocimiento simultáneo de varias tarjetas. Las tarjetas giradas hasta 30 grados pueden reconocerse; las rotaciones excesivas no pueden reconocerse.
 
@@ -73,29 +57,17 @@ Es un parámetro opcional que determina la dirección I2C del dispositivo. El va
 
 Antes de poder usar Sentry2, debes inicializarla mediante el bloque de la imagen, que por lo general, se coloca debajo de un bloque tipo sombrero "al empezar".
 
-<center>
-
-![Bloque para inicializar Sentry2](../img/CoCube/B_inic_sentry2.png)  
-
-</center>
+![Bloque para inicializar Sentry2](../img/CoCube/B_inic_sentry2.png){.center-img30}
 
 - **Establecer modo de Sentry2**
 
-<center>
-
-![Bloque Establecer modo de Sentry2](../img/CoCube/B_est_modo_sentry2.png)  
-
-</center>
+![Bloque Establecer modo de Sentry2](../img/CoCube/B_est_modo_sentry2.png){.center-img30}
 
 Debes establecer el modo en tarjeta (card), es decir, el modo de reconocimiento de tarjetas de señal de tráfico.
 
 - **Resultados de las pruebas de Sentry2**
 
-<center>
-
-![Bloque resultados de las pruebas de Sentry2](../img/CoCube/B_res_pruebas_sentry2.png)  
-
-</center>
+![Bloque resultados de las pruebas de Sentry2](../img/CoCube/B_res_pruebas_sentry2.png){.center-img30}
 
 Antes de usar este bloque, debes asegurarte de que el modo de algoritmo de tarjeta esté habilitado.
 
@@ -105,21 +77,13 @@ El resultado devuelto es el número de resultados reconocidos por el algoritmo d
 
 - **Sentry2 Tarjeta detectada**
 
-<center>
-
-![Bloque Sentry2 Tarjeta detectada](../img/CoCube/B_sentry2_tarj_detec.png)  
-
-</center>
+![Bloque Sentry2 Tarjeta detectada](../img/CoCube/B_sentry2_tarj_detec.png){.center-img30}  
 
 Devuelve el atributo de etiqueta del identificador del objeto detectado. Este bloque determina si el objeto con el identificador 1 es una tarjeta de avanzar; si es así, devuelve True; de lo contrario, devuelve False.
 
 - **Sentry2 detecta los atributos del objeto**
 
-<center>
-
-![Sentry2 detecta los atributos del objeto](../img/CoCube/B_atrib_obj.png)  
-
-</center>
+![Sentry2 detecta los atributos del objeto](../img/CoCube/B_atrib_obj.png){.center-img30}
 
 Devuelve los atributos del identificador del objeto detectado, incluida la coordenada 'X' central del parche de color, la coordenada 'Y' del centro del parche de color, la anchura del parche de color 'w', la altura 'h' del parche de color y la etiqueta.
 
@@ -133,28 +97,17 @@ Cada una de estas etiquetas corresponde a una categoría de tarjeta diferente (p
 
 <font color=#FF0000>**&#x2462**</font> Debajo de un bloque sombrero "al empezar" coloca el bloque "activa la alimentación del módulo" para que la Sentry2 se alimente a través del conector I2C. A continuación inicializa la interfaz I2C y coloca una espera de 4 segundos para dar tiempo a que el módulo de la cámara se inicie correctamente y, a continuación, establece el modo de algoritmo de la cámara en modo card (tarjeta) para detectar la información de la tarjeta.
 
-<center>
-
-![Programa "al comenzar"](../img/CoCube/P_detec_color_ini.png)  
-
-</center>
+![Programa "al comenzar"](../img/CoCube/P_detec_color_ini.png){.center-img}
 
 <font color=#FF0000>**&#x2463**</font> En primer lugar, debemos utilizar el bloque "Sentry2 detectd card **...** objid ##", que determina si el resultado de la detección de la etiqueta de la tarjeta con el número de secuencia de identificación "##" es "**".
 
-<center>
-
-![Bloque Sentry2 Tarjeta detectada](../img/CoCube/B_sentry2_tarj_detec.png)  
-
-</center>
+![Bloque Sentry2 Tarjeta detectada](../img/CoCube/B_sentry2_tarj_detec.png){.center-img40}
 
 Para facilitar el inicio, podemos configurar la lógica para que comience a comprobar después de pulsar el botón A. Ahora, solo hay que utilizar una combinación de bucles y sentencias condicionales para implementar diferentes procesamientos lógicos para diferentes etiquetas de tarjeta, como se muestra en la figura siguiente, que incluye el manejo de la parada con semáforo en rojo, el avance con semáforo en verde y el estacionamiento:
 
-<center>
+![Programación de ejemplo base](../img/CoCube/P_ejem_base_signals.png){.center-img}
 
-![Programación de ejemplo base](../img/CoCube/P_ejem_base_signals.png)  
-**[Descargar el programa](../program/cocube/CoCube_trafico_ini.ubp)**
-
-</center>
+*[Descargar el programa](../program/cocube/CoCube_trafico_ini.ubp)*
 
 ## <FONT COLOR=#007575>**Programa para seguir las señales de tráfico**</font>
 
@@ -166,9 +119,6 @@ Para facilitar el inicio, podemos configurar la lógica para que comience a comp
 
 <font color=#FF0000>**&#x2463**</font> Bajo un bloque sombrero "cuando se pulse el botón..." se comprueba continuamente si se detecta alguna de las tarjetas. Si es cierto el robot realiza la tarea correspondiente a la tarjeta detectada.
 
-<center>
+![Programa para seguir las señales de tráfico](../img/CoCube/P_trafico.png){.center-img}
 
-![Programa para seguir las señales de tráfico](../img/CoCube/P_trafico.png)  
-**[Descargar el programa](../program/cocube/CoCube_trafico.ubp)**
-
-</center>
+*[Descargar el programa](../program/cocube/CoCube_trafico.ubp)*

@@ -24,11 +24,7 @@ El programa utiliza, bien directamente o bien por dependecias, las siguientes bi
 * Llama a la función ```balon```, que dibuja el balón y muestra el texto “Hora de jugar futbol”.
 * Abre la pinza o gripper del módulo con servomotor acoplado al robot (la pinza) para asegurarse de que está preparado.
 
-<center>
-
-![Bloque al empezar](../img/CoCube/B_alempezar_futbol.png)  
-
-</center>
+![Bloque al empezar](../img/CoCube/B_alempezar_futbol.png){.center-img50}
 
 <FONT COLOR=#FF00FF>**&#8227; Botón A**</font>
 
@@ -40,11 +36,7 @@ El programa utiliza, bien directamente o bien por dependecias, las siguientes bi
 
 * Si no está sobre el tapete, muestra un mensaje de error en color rojo.
 
-<center>
-
-![Botón A](../img/CoCube/Boton_A_futbol.png)  
-
-</center>
+![Botón A](../img/CoCube/Boton_A_futbol.png){.center-img50}
 
 <FONT COLOR=#FF00FF>**&#8227; Botón B**</font>
 
@@ -55,11 +47,7 @@ Al presionar B, el robot:
 * Llama a la función ```ir a chutar```, que hace que el robot se desplace y patee.
 * Luego muestra el texto "Anotaste?" y vuelve a dibujar el balón.
 
-<center>
-
-![Botón B](../img/CoCube/Boton_B_futbol.png)  
-
-</center>
+![Botón B](../img/CoCube/Boton_B_futbol.png){.center-img50}
 
 <FONT COLOR=#FF00FF>**&#8227; Botón A+B**</font>
 
@@ -71,11 +59,7 @@ Al presionar A+B simultáneamente:
 
 Deja al robot listo para comenzar de nuevo.
 
-<center>
-
-![Botón A+B](../img/CoCube/Boton_AB_futbol.png)  
-
-</center>
+![Botón A+B](../img/CoCube/Boton_AB_futbol.png){.center-img50}
 
 ## <FONT COLOR=#007575>**Funciones**</font>
 
@@ -85,22 +69,14 @@ Deja al robot listo para comenzar de nuevo.
 * Muestra el mensaje "Hora de jugar futbol" en tres líneas.
 * Llama a dibujar_balon para representar gráficamente un balón.
 
-<center>
-
-![Función balon](../img/CoCube/Funcion_balon.png)  
-
-</center>
+![Función balon](../img/CoCube/Funcion_balon.png){.center-img50}
 
 <FONT COLOR=#500050>**&#8227; Función *dibujar_balon***</font>
 
 * Dibuja un balón en pantalla combinando círculos (blanco y rojo) y triángulos para simular los paneles del balón.
 * Usa coordenadas fijas para formar la figura.
 
-<center>
-
-![Función dibujar_balon](../img/CoCube/Funcion_dibujar_balon.png)  
-
-</center>
+![Función dibujar_balon](../img/CoCube/Funcion_dibujar_balon.png){.center-img50}
 
 <FONT COLOR=#500050>**&#8227; Función *ir a chutar***</font>
 
@@ -118,9 +94,7 @@ Simula que el robot va a chutar un balón:
 
 En resumen:
 
-<center>
-
-| Etapa | Acción                      | Propósito                      |
+| Etapa | Acción                    | Propósito                      |
 | :-: | --------------------------- | ------------------------------ |
 | 1   | Cierra pinza                | Prepararse para sujetar balón  |
 | 2   | Retrocede hasta 20 unidades | Crear espacio para impulso     |
@@ -131,13 +105,7 @@ En resumen:
 | 7   | Avanza si está muy lejos    | Colocarse a distancia adecuada |
 | 8   | Avanza, cierra, suelta      | Simular el disparo (chute)     |
 
-</center>
-
-<center>
-
-![Función dibujar_balon](../img/CoCube/Funcion_chutar_balon.png)  
-
-</center>
+![Función dibujar_balon](../img/CoCube/Funcion_chutar_balon.png){.center-img50}
 
 <FONT COLOR=#500050>**&#8227; Función *muestra-x_ini-y_ini***</font>
 
@@ -150,8 +118,6 @@ Similar a la anterior, pero muestra la posición y dirección actuales del CoCub
 
 A continuación se muestra un resumen general del programa:
 
-<center>
-
 | Sección | Propósito principal |
 | --- | --- |
 | **al comenzar** | Prepara el entorno y muestra el balón inicial.|
@@ -163,39 +129,24 @@ A continuación se muestra un resumen general del programa:
 | **Función ir a chutar**| Controla los movimientos del robot para simular un disparo.|
 | **Función muestra-x_ini-y_ini / muestra-x1-y1** | Muestran en pantalla las coordenadas guardadas.|
 
-</center>
-
 ## <FONT COLOR=#007575>**Programa**</font>
 !!! Warning "Aviso"
     Para que el programa funcione correctamente hay que añadir las bibliotecas PID y servomotor si no están ya agregadas
 
-<center>
+![Programa futbol](../img/CoCube/futbol.png){.center-img}
 
-![Programa futbol](../img/CoCube/futbol.png)  
-**[Descarga programa futbol.ubp](../program/cocube/futbol.ubp)**
-
-</center>
+*[Descarga programa futbol.ubp](../program/cocube/futbol.ubp)*
 
 En el video siguiente podemos observar el funcionamiento del programa anterior con un pequeño error de posicionamiento a la hora de recoger el balón.
 
-<center>
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XsAPhXdj_9M?si=QsyLMzQjPhbUzCXf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-</center>
 
 ## <FONT COLOR=#007575>**Porteria 3D**</font>
 Para dar mayor realismo al juego he diseñado los elementos 3D necesarios para poder imprimir y montar de forma sencilla una porteria como la que se observa en la animación siguiente:
 
-<center>
-
-![Porteria futbol](../img/CoCube/porteria.gif)  
-
-</center>
+![Porteria futbol](../img/CoCube/porteria.gif){.center-img50}
 
 El ensamble se realiza encajando por presión los tetones de que disponen unas partes en los orificios de las otras. En la tabla siguiente están los archivos STL para descargar, imprimir y construir todas las que necesitemos.
-
-<center>
 
 |Imágen|STL|
 |:-:|:-:|
@@ -203,5 +154,3 @@ El ensamble se realiza encajando por presión los tetones de que disponen unas p
 |![](../img/CoCube/lateral.png)|[Lateral x2](../img/aux/porteria/porteria-lateral.stl)|
 |![](../img/CoCube/superior.png)|[Lateral x2](../img/aux/porteria/porteria-superior.stl)|
 |![](../img/CoCube/zip.png)|[Todo en un zip](../img/aux/porteria/porteria.zip)|
-
-</center>
