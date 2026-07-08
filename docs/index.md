@@ -1,7 +1,7 @@
 
 En esta web vamos a encontrar contenidos sobre CoCube, un robot educativo de escritorio que incorpora inteligencia artificial. CoCube es un robot muy pequeño que integra comunicación inalámbrica, pantalla, interacción por voz y otras funciones. Incorpora una batería que le permite moverse con flexibilidad.
 
-![Robot CoCube, ligero y portátil](./img/CoCube/lig_port.png){style="display: block; margin: 0 auto;"}
+![Robot CoCube, ligero y portátil](./img/CoCube/lig_port.png){.center-img}
 
 CoCube es un robot educativo de escritorio que incorpora inteligencia artificial, desarrollado conjuntamente por un equipo de estudiantes de máster y doctorado de las universidades Shanghái Jiao Tong y Fudan, con el objetivo de acercar la inteligencia artificial a los jóvenes y crear una plataforma creativa llena de interactividad, logros y diversión. CoCube estimula la curiosidad y la creatividad de los estudiantes al involucrarlos en el diseño de robots de IA, desde la programación simple hasta la construcción de sistemas interactivos complejos, y les ayuda a convertir sus ideas e inspiraciones en realidad.
 
@@ -14,27 +14,19 @@ Los contenidos que se exponen en este apartado son una adaptación y ampliación
 
 La imagen siguiente corresponde a la página principal de [CoCube](https://www.cocubefun.com/) y muestra los colaboradores de confianza del robot. Destaco entre ellos a uno de mis principales soportes, que es [INNOVA DIDACTIC](https://shop.innovadidactic.com/)
 
-<center>
-
-![CoCubefun](./img/CoCube/CoCubefun.png)  
-***Creando innovación junto con empresas y organizaciones líderes en todo el mundo***
-
-</center>
+![CoCubefun](./img/CoCube/CoCubefun.png){.center-img}
+<p class= "center-text"><i>Creando innovación junto con empresas y organizaciones líderes en todo el mundo</i></p>
 
 ## <FONT COLOR=#007575>**CoCube**</font>
 <font size="6"><b>CoCube es una plataforma modular múlti-robot de sobremesa para la educación y la investigación</b></font>
 
 CoCube ha sido desarrollado por:
 
-<center>
+<p class= "center-text"><i>Shuai Liang$^{(1,2,4)}$, Songyi Zhu$^{(2,4)}$, Zhonghan Tang$^{(2)}$, Chenhui Li$^{(2)}$, Wenjie Wu$^{(3)}$, Jialing Han$^{(1)}$, Zemin Lin$^{(4)}$, Zhongrui You$^{(2)}$, John Maloney$^{(3)}$, Bernat Romagosa$^{(3)}$, Bin Zhao$^{(2)}$, Zhigang Wang$^{(2)}$, Zhinan Zhang$^{(4)}$, Xuelong Li$^{(2,5)}$
 
-Shuai Liang$^{(1,2,4)}$, Songyi Zhu$^{(2,4)}$, Zhonghan Tang$^{(2)}$, Chenhui Li$^{(2)}$, Wenjie Wu$^{(3)}$, Jialing Han$^{(1)}$, Zemin Lin$^{(4)}$, Zhongrui You$^{(2)}$, John Maloney$^{(3)}$, Bernat Romagosa$^{(3)}$, Bin Zhao$^{(2)}$, Zhigang Wang$^{(2)}$, Zhinan Zhang$^{(4)}$, Xuelong Li$^{(2,5)}$
+$^{(1)}$ Universidad de Fudan, , $^{(2)}$ Laboratorio de IA de Shanghái, , $^{(3)}$MicroBlocks, $^{(4)}$ Universidad Jiao Tong de Shanghái, $^{(5)}$ Instituto de Inteligencia Artificial y China Telecom Corp Ltd.</i></p>
 
-$^{(1)}$ Universidad de Fudan, , $^{(2)}$ Laboratorio de IA de Shanghái, , $^{(3)}$MicroBlocks, $^{(4)}$ Universidad Jiao Tong de Shanghái, $^{(5)}$ Instituto de Inteligencia Artificial y China Telecom Corp Ltd.
-
-![Logotipos](./img/CoCube/logos.png)  
-
-</center>
+![Logotipos](./img/CoCube/logos.png){.center-img}
 
 **Plataforma CoCube**: El hardware incluye
 
@@ -45,67 +37,37 @@ $^{(1)}$ Universidad de Fudan, , $^{(2)}$ Laboratorio de IA de Shanghái, , $^{(
 
 El software se desarrolla en la plataforma MicroBlocks y es compatible con múltiples APIs avanzadas.
 
-<center>
-
-![Plataforma CoCube](./img/CoCube/Plataforma_CoCube.png)  
-
-</center>
+![Plataforma CoCube](./img/CoCube/Plataforma_CoCube.png){.center-img}
 
 ## <FONT COLOR=#007575>**Aspectos destacados**</font>
 * CoCube es un robot de escritorio muy pequeño que integra comunicación inalámbrica, pantalla, interacción por voz y otras funciones. Incorpora una batería de larga duración que le permite moverse con flexibilidad. Su programación es sencilla y se puede disfrutar en cualquier momento y lugar.
 
-<center>
-
-![Ligero y portátil](./img/CoCube/lig_port.png)  
-
-</center>
+![Ligero y portátil](./img/CoCube/lig_port.png){.center-img}
 
 * CoCube cuenta con comunicación inalámbrica, pantalla LCD de 240x240 px0, movimientos precisos a través de sus ruedas, botón de encendido y apagado, altavoz para emitir sonidos, dos botones, un LED indicador de carga (rojo) o de encendido (verde), un conector magnético para módulos de expansión y posicionamiento exacto mediante camara.
 
-<center>
-
-![Componentes de CoCube](./img/CoCube/partes.png)  
-
-</center>
+![Componentes de CoCube](./img/CoCube/partes.png){.center-img}
 
 * Gracias a su interfaz magnética frontal, CoCube puede expandirse con módulos de detección, actuadores, visualización e inteligencia artificial. El conector es de tipo plug and play, por lo que permite satisfacer muchas necesidades creativas y personalizadas.
 
-<center>
-
-![Módulos de expansión](./img/CoCube/mod.png)  
-
-</center>
+![Módulos de expansión](./img/CoCube/mod.png){.center-img}
 
 * El robot CoCube puede ubicarse con precisión en mapas CoMaps, lo que brinda grandes posibilidades para el control preciso de un robot y la colaboración en grupos de robots. Esto permite experimentar con el trabajo en equipo y la programación creativa.
 
-<center>
-
-![Posicionamiento preciso](./img/CoCube/CoMaps.png)  
-
-</center>
+![Posicionamiento preciso](./img/CoCube/CoMaps.png){.center-img}
 
 * **CoMaps** utiliza tecnología de identificación óptica (OID) para crear mapas de codificación por micropuntos que se pueden imprimir en papel normal, lo que proporciona a los robots CoCube capacidades de posicionamiento de alta precisión y fáciles de implementar.
 
-<center>
-
-![Posicionamiento preciso](./img/CoCube/CoMaps1.png)  
-
-</center>
+![Posicionamiento preciso](./img/CoCube/CoMaps1.png){.center-img}
 
 * El robot CoCube se puede programar mediante la plataforma de programación gráfica MicroBlocks, que ya se ha descrito en la sección [ESP32 micro:STEAMakers](https://fgcoca.github.io/GuiasFundamentales/microSTEAMakers/contmicroSM/). MicroBlocks admite programación interactiva, depuración en tiempo real y conexión y desconexión en cualquier momento, lo que permite el funcionamiento autónomo. El sistema utiliza MicroBlocks para el desarrollo de firmware y bibliotecas de bloques, con interfaces de comunicación para APIs avanzadas que permiten realizar tareas más complejas.
 
-<center>
-
-![Programación gráfica](./img/CoCube/prog.png)  
-
-</center>
+![Programación gráfica](./img/CoCube/prog.png){.center-img}
 
 ## <FONT COLOR=#007575>**Especificaciones técnicas**</font>
 ### <FONT COLOR=#AA0000>Robot CoCube</font>
 
-<center>
-
-![Robot CoCube](./img/CoCube/robotCC.png)  
+![Robot CoCube](./img/CoCube/robotCC.png){.center-img}
 
 |Especificación|Parámetro|
 |---|---|
@@ -124,18 +86,12 @@ El software se desarrolla en la plataforma MicroBlocks y es compatible con múlt
 |Dimensiones|45 × 45 × 38 mm|
 |Peso|63g|
 
-</center>
-
 ### <FONT COLOR=#AA0000>Mapas de ubicación CoMaps</font>
 Los robots CoCube pueden obtener ubicaciones y ángulos precisos en los mapas CoMaps.
 
 Para un CoMap estándar, el tamaño total es de aproximadamente un formato A3 y está diseñado con variedad de temas, como laberintos, circuitos para conducción, fútbol, etc.
 
-<center>
-
-![CoMap laberinto](./img/CoCube/laberinto.png)
-
-</center>
+![CoMap laberinto](./img/CoCube/laberinto.png){.center-img}
 
 Las coordenadas de la esquina superior izquierda del mapa son (0,0), las coordenadas de la esquina inferior derecha son (300,200), el eje X va de izquierda a derecha (0 ~ 300) y el eje Y va de arriba a abajo (0 ~ 200).
 
@@ -150,8 +106,6 @@ Para obtener más información sobre los mapas de ubicación de CoMaps o los req
 ### <FONT COLOR=#AA0000>Módulo de expansión CoModules</font>
 El robot CoCube se puede ampliar fácilmente a través de conectores magnéticos con diferentes módulos. Actualmente, se admiten los siguientes:
 
-<center>
-
 |Módulo|Imagen|Funciones y aplicaciones|
 |---|---|---|
 |Pinza servo|![](./img/CoCube/gripper.png)|Las pinzas se pueden dotar de piezas de agarre de silicona para que sean antidelizantes.<br>Aplicable a logistica y escenarios de competición</br>|
@@ -159,8 +113,6 @@ El robot CoCube se puede ampliar fácilmente a través de conectores magnéticos
 |Panel WS2812|![](./img/CoCube/NeoPixel.png)|Se trata de una matriz de 6x8 LEDs RGB controlables individualmente y con una amplia variedad de colores y efectos dinámicos. Se puede programar y controlar fácilmente a través de un microcontrolador o un controlador dedicado y permite el ajuste píxel a píxel para un rendimiento óptimo|
 |Reconocimiento de gestos|![](./img/CoCube/3Dgesture.png)|Para el reconocimiento de gestos en un espacio tridimensional, lo que permite el control interactivo con un robot|
 |Visión artificial|![](./img/CoCube/vis_art.png)|Con procesados K210 de 64 bits RISC-V integra algoritmos de visión como reconocimiento de color, de tarjetas, de caras, AprilTag (etiquetas visuales), códigos QR, que facilitan la creación de aplicaciones con visión artificial|
-
-</center>
 
 ## <FONT COLOR=#007575>**Plataforma gráfica de programación**</font>
 En cuanto a la arquitectura de software, el objetivo de CoCube es ofrecer una experiencia de programación fácil de usar, manteniendo la flexibilidad y escalabilidad para soportar su hardware modular. El sistema utiliza MicroBlocks para el desarrollo del firmware y bibliotecas de bloques, con interfaces de comunicación para APIs avanzadas que permitan realizar tareas.
@@ -171,19 +123,11 @@ MicroBlocks es un lenguaje de programación gráfico para "computación física"
 
 - [Página principal de MicroBlocks](https://microblocks.fun/)
 
-<center>
-
-![Página principal de MicroBlocks](./img/CoCube/home.png)
-
-</center>
+![Página principal de MicroBlocks](./img/CoCube/home.png){.center-img}
 
 - [Página de MicroBlocks con libreria CoCube y dependencias](https://microblocks.fun/run/microblocks.html#scripts=GP%20Scripts%0Adepends%20%27CoCube%27)
 
-<center>
-
-![Página principal de MicroBlocks](./img/CoCube/uBCoCube.png)
-
-</center>
+![Página principal de MicroBlocks](./img/CoCube/uBCoCube.png){.center-img}
 
 !!! Note "Nota:"
     La plataforma MicroBlocks es actualmente compatible con Windows, MacOS y Linux.
@@ -208,20 +152,12 @@ En MicroBlocks hay dos formas de conectar un dispositivo CoCube, siendo recomend
     </center>
 * En la configuración Bluetooth del ordenador empareja el dispositivo detectado.
 
-<center>
-
-![Emparejado Bluetooth en PC](./img/CoCube/emparejado.png)
-
-</center>
+![Emparejado Bluetooth en PC](./img/CoCube/emparejado.png){.center-img}
 
 * Haz clic en el icono "USB Conecta" en la parte superior derecha de interfaz de MicroBlocks y toca en Conexión inalámbrica (BLE).
 * En circunstancias normales, se pueden reconocer las palabras "MicroBlocks XXX" o "CoCube XXX", siendo XXX es las tres letras muestra el robot cuando se enciende.
 
-<center>
-
-![Emparejado Bluetooth en IDE](./img/CoCube/emparejadoIDE.png)
-
-</center>
+![Emparejado Bluetooth en IDE](./img/CoCube/emparejadoIDE.png){.center-img}
 
 **2. Conexión por cable**
 
@@ -237,11 +173,7 @@ Cuando uses el dispositivo por primera vez, actualiza el firmware más reciente 
 * Conecta mediante cable el robot CoCube.
 * Accede a la configuración del IDE de MicroBlocks, haz clic en "Actualizar el firmware de la placa", selecciona "CoCube" de la lista y selecciona el puerto correspondiente.
 
-<center>
-
-![Actualizar firmware de CoCube](./img/CoCube/act_firm.png)
-
-</center>
+![Actualizar firmware de CoCube](./img/CoCube/act_firm.png){.center-img}
 
 !!! Warning " "
     El proceso de actualización tarda aproximadamente un minuto, durante el cual debes mantener el IDE de MicroBlocks en pantalla. No hagas nada más durante este tiempo. De lo contrario, es posible que la actualización del firmware falle, por lo que, si esto ocurre, deberás volver a actualizar.
@@ -297,11 +229,7 @@ Los marcadores se organizan en diccionarios que contienen un número fijo de mar
 
 La estructura de un marcador ArUco se forma con un borde negro y una cuadricula interna que contiene el patrón binario que representa un identificador. En la imagen vemos marcadores ArUco de 4x4, 5x5, 6x6 y 7x7.
 
-<center>
-
-![Marcador ArUco](./img/CoCube/ArUco.png)
-
-</center>
+![Marcador ArUco](./img/CoCube/ArUco.png){.center-img}
 
 Estos marcadores son una herramienta cuyos ejemplos de uso son: en realidad aumentada, superponiendo imágenes virtuales sobre un marcador real para crear experiencias interactivas; en localización de robots, permitiendo a los mismo localizar objetos o posiciones específicas en un entorno o en seguimiento de objetos, donde pueden utilizarse para rastrear la posición y orientación de objetos en tiempo real.
 
@@ -312,11 +240,7 @@ Existen páginas donde se pueden generar y descargar hojas de marcadores ArUco:
 
 En la imagen vemos un ejemplo de uso:
 
-<center>
-
-![Marcadores ArUco](./img/CoCube/ArUco_marcadores.png)  
-
-</center>
+![Marcadores ArUco](./img/CoCube/ArUco_marcadores.png){.center-img}
 
 ### <FONT COLOR=#AA0000>Marcador AprilTag</font>
 Los [AprilTag](https://april.eecs.umich.edu/software/apriltag) son marcadores visuales para detección e identificación mediante sistemas de visión artificial desarrollados por investigadores de la universidad de Michigan.
@@ -333,11 +257,7 @@ Su nombre procede del laboratorio de robótica "April" de la Universidad de Mich
 
 Se clasifican en las siguientes familias:
 
-<center>
-
-![Familias AprilTag](./img/CoCube/fam_april.png)  
-
-</center>
+![Familias AprilTag](./img/CoCube/fam_april.png){.center-img}
 
 En la tabla siguiente vemos datos referentes a estas familias:
 
